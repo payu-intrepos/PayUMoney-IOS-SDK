@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayuMoneySDKPaymentUsingWallet">
+            <connections>
+                <outlet property="LblPayUsingWallet" destination="thQ-fg-mrr" id="hOV-sO-lTH"/>
+                <outlet property="okBtn" destination="c4o-6s-Wjr" id="tEv-pR-iW1"/>
+                <outlet property="reaminingWalletMoneyLbl" destination="kSi-dI-DPz" id="VmV-nv-bUU"/>
+                <outlet property="walletMoneyUsedLbl" destination="No5-Hc-6Sn" id="vbz-qX-8pZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PayuMoneySDKPaymentUsingWallet">
+            <rect key="frame" x="0.0" y="0.0" width="278" height="379"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thQ-fg-mrr">
+                    <rect key="frame" x="21" y="8" width="236" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="236" id="mz8-NL-GMt"/>
+                        <constraint firstAttribute="height" constant="32" id="yMG-Ry-UE1"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Payment Using Wallet">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BH-n0-MgB">
+                    <rect key="frame" x="0.0" y="48" width="278" height="2"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="2VW-zf-xh2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yoo - hoo!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hud-Ui-0fs">
+                    <rect key="frame" x="14" y="70" width="95" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27" id="Hae-Da-5xL"/>
+                        <constraint firstAttribute="width" constant="95" id="fxl-Qs-P0S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Wallet Money Used : Rs." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="No5-Hc-6Sn">
+                    <rect key="frame" x="5" y="203" width="265" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Money in Wallet : Rs." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSi-dI-DPz">
+                    <rect key="frame" x="5" y="228" width="265" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3p-fU-I0e">
+                    <rect key="frame" x="0.0" y="315" width="276" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="NoF-Bl-A5a"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-6s-Wjr">
+                    <rect key="frame" x="79" y="318" width="120" height="40"/>
+                    <color key="backgroundColor" red="0.20392156859999999" green="0.1764705882" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6YJ-dk-8DT"/>
+                        <constraint firstAttribute="width" constant="120" id="7QK-1A-4wJ"/>
+                    </constraints>
+                    <state key="normal" title="Ok">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="okBtnClicked:" destination="-1" eventType="touchUpInside" id="2xm-Ok-Gyy"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have enough money in PayUmoney Wallet for this transaction. All you need to do is confirm the payment by clicking on OK." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqU-8V-3B6">
+                    <rect key="frame" x="8" y="105" width="262" height="83"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="83" id="0Uu-bS-kKR"/>
+                        <constraint firstAttribute="width" constant="262" id="Ut0-kv-Cxz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Hud-Ui-0fs" firstAttribute="top" secondItem="9BH-n0-MgB" secondAttribute="bottom" constant="20" id="6fp-7x-XKU"/>
+                <constraint firstAttribute="trailing" secondItem="D3p-fU-I0e" secondAttribute="trailing" constant="2" id="BZ6-xX-Rxd"/>
+                <constraint firstItem="thQ-fg-mrr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C3e-9x-nL4"/>
+                <constraint firstItem="c4o-6s-Wjr" firstAttribute="top" secondItem="D3p-fU-I0e" secondAttribute="bottom" constant="2" id="CwU-Zo-Udj"/>
+                <constraint firstItem="c4o-6s-Wjr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="E8N-4m-QLZ"/>
+                <constraint firstItem="kSi-dI-DPz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="HgK-rH-I2D"/>
+                <constraint firstItem="thQ-fg-mrr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="I1d-Nf-qGe"/>
+                <constraint firstItem="TqU-8V-3B6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="ND4-8C-atA"/>
+                <constraint firstAttribute="trailing" secondItem="kSi-dI-DPz" secondAttribute="trailing" constant="8" id="Qji-ex-XbY"/>
+                <constraint firstAttribute="trailing" secondItem="9BH-n0-MgB" secondAttribute="trailing" id="UOb-sz-Cje"/>
+                <constraint firstAttribute="trailing" secondItem="No5-Hc-6Sn" secondAttribute="trailing" constant="8" id="Wrn-BX-0y2"/>
+                <constraint firstItem="kSi-dI-DPz" firstAttribute="top" secondItem="No5-Hc-6Sn" secondAttribute="bottom" constant="5" id="bjf-yU-qYf"/>
+                <constraint firstItem="No5-Hc-6Sn" firstAttribute="top" secondItem="TqU-8V-3B6" secondAttribute="bottom" constant="15" id="fAo-b8-ByH"/>
+                <constraint firstItem="D3p-fU-I0e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fu5-UB-EJt"/>
+                <constraint firstItem="TqU-8V-3B6" firstAttribute="top" secondItem="Hud-Ui-0fs" secondAttribute="bottom" constant="8" id="jAO-rn-sbl"/>
+                <constraint firstItem="D3p-fU-I0e" firstAttribute="top" secondItem="kSi-dI-DPz" secondAttribute="bottom" constant="67" id="jvt-7X-xuy"/>
+                <constraint firstItem="9BH-n0-MgB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tAD-zr-oGr"/>
+                <constraint firstItem="No5-Hc-6Sn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="te1-nt-tZ6"/>
+                <constraint firstItem="9BH-n0-MgB" firstAttribute="top" secondItem="thQ-fg-mrr" secondAttribute="bottom" constant="8" id="wCn-wW-GE6"/>
+                <constraint firstItem="Hud-Ui-0fs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="zWy-ad-cZw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="464" y="145.5"/>
+        </view>
+    </objects>
+</document>

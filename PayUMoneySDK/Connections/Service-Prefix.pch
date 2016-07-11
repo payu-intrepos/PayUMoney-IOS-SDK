@@ -1,0 +1,94 @@
+//
+//  Service-Prefix.pch
+//  PayuMoneyApp
+//
+//  Created by Honey Lakhani on 7/7/15.
+//  Copyright (c) 2015 Honey Lakhani. All rights reserved.
+//
+#import <Availability.h>
+#ifndef PayuMoneyApp_Service_Prefix_pch
+#define PayuMoneyApp_Service_Prefix_pch
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+
+#import <Foundation/Foundation.h>
+//#import "Reachability.h"
+//#import "AppConstant.h"
+//#import "AppDelegate.h"
+//#import "RequestParams.h"
+//#import "ConnectionManager.h"
+//#import "PayuRequestManager.h"
+//
+//#import "Session.h"
+//#import "ServiceParameters.h"
+//#import "CardView.h"
+//#import "NetBanking.h"
+//
+//#import "Luhn.h"
+//#import "SetUpCardDetails.h"
+////#import "CouponView.h"
+////#import "DatePicker.h"
+////#import "PaymentBreakdown.h"
+////#import "PayUsingPointsAlert.h"
+////#import "NSString+Encode.h"
+////#import "ScrollablePaymentView.h"
+////#import "RSA.h"
+////#import "OtpPasswordTableviewCell.h"
+//#import "StoredCard.h"
+//#import "SavedCardCvv.h"
+////#import "WebViewViewController.h"
+////#import "FinalViewController.h"
+//#import "PaymentTableViewCell.h"
+//#import "PaymentViewController.h"
+//#import "PayUsingPointsViewController.h"
+//#import "LoginViewController.h"
+//#import "ViewController.h"
+//
+////#import "PaymentUsingWallet.h"
+////#import "ActivityView.h"
+//#endif
+//
+//#define ALERT(X,Y)    {UIAlertView *alert = [[UIAlertView alloc] initWithTitle:X message:Y delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];[alert show];alert = nil;}
+//
+//#define NOINTERNET    @"No Internet connection"
+//#define NETWORKCONNECTIONMESSAGE    @"Please connect your device to a network."
+//
+//#define APP_DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+//
+//// TEST
+////#define Main_URl @"https://mobiletest.payumoney.com"
+//
+//// LIVE
+//#define Main_URl @"https://mobile.payumoney.com"
+//
+//
+//#define Login_URL @"/auth/oauth/token"
+//#define Auth_URL @"/auth/user"
+//#define Payment_URL @"/payment/app/payment/addSdkPayment"
+//#define Get_Payment_Merchant_URL @"/payment/app/customer/getPaymentMerchant"
+//#define Sign_Up_URL @"/auth/app/register"
+//#define Login_Params_URL @"/auth/app/op/merchant/LoginParams"
+//#define OTP_URL @"/auth/op/generateAndSendOTP"
+//#define Forgot_Password_URL @"/auth/app/forgot/password"
+//#define Web_Payment_URL @"https://mobiletest.payu.in/_seamless_payment"
+//#define TXNID @"txnid"
+//#define MERCHANTID @"merchantId"
+//#define SURL @"surl"
+//#define FURL @"furl"
+//#define PRODUCT_INFO @"productinfo"
+//#define FIRSTNAME @"firstname"
+//#define USER_EMAIL @"email"
+//#define USER_PHONE @"phone"
+//#define EMAIL_REGEX @"[A-Z0-9a-z._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+//#define MERCHANT_PARAM_ALLOW_GUEST_CHECKOUT_VALUE @"allowGuestCheckout"
+//#define MERCHANT_PARAM_ALLOW_GUEST_CHECKOUT @"guestcheckout"
+//#define MERCHANT_PARAM_ALLOW_GUEST_CHECKOUT_ONLY @"guestcheckoutonly"
+//#define OTP_LOGIN @"quickLogin"
+//#define EMAIL_REGEX @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+//#define PASSWORD_REGEX @"^(?=.{6,}$)((.*[A-Za-z]+.*[0-9]+|.*[0-9]+.*[A-Za-z]+).*$)"
+//#define PHONE_REGEX @"^[789]\\d{9}$"
+#import "PayuMoneySDKConstants.h"
+#endif
+#endif

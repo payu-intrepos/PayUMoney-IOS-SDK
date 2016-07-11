@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SavedCardCvv">
+            <connections>
+                <outlet property="cvvTextField" destination="Ghd-mm-twa" id="TCD-NJ-Mpa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PayuMoneySDKSavedCardCvv">
+            <rect key="frame" x="0.0" y="0.0" width="217" height="141"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ghd-mm-twa" customClass="PayuSDKTextField">
+                    <rect key="frame" x="106" y="42" width="97" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="97" id="3rP-Eq-7lW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZi-jd-eBs">
+                    <rect key="frame" x="8" y="42" width="79" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ARy-MY-VX6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nip-vt-pbs">
+                    <rect key="frame" x="72" y="92" width="63" height="40"/>
+                    <color key="backgroundColor" red="0.20392156862745098" green="0.17647058823529413" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="KIS-CN-tye"/>
+                        <constraint firstAttribute="width" constant="63" id="XSE-KZ-QRc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Pay">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="payBtnClicked:" destination="-1" eventType="touchUpInside" id="bW0-oC-kfU"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ghd-mm-twa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="1F9-eY-33P"/>
+                <constraint firstItem="nip-vt-pbs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-5" id="Dyr-YX-VDX"/>
+                <constraint firstItem="nip-vt-pbs" firstAttribute="top" secondItem="Ghd-mm-twa" secondAttribute="bottom" constant="20" id="WSc-BJ-QaK"/>
+                <constraint firstItem="HZi-jd-eBs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="42" id="buV-83-WKD"/>
+                <constraint firstItem="HZi-jd-eBs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="jnF-ij-GXJ"/>
+                <constraint firstItem="Ghd-mm-twa" firstAttribute="leading" secondItem="HZi-jd-eBs" secondAttribute="trailing" constant="19" id="zoJ-3r-E5W"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="payBtn" destination="nip-vt-pbs" id="zUY-9s-wsc"/>
+            </connections>
+            <point key="canvasLocation" x="295.5" y="544.5"/>
+        </view>
+    </objects>
+</document>
