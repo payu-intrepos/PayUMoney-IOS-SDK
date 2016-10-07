@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PayuMoneySDKAppConstant.h"
 typedef enum {
     
     
@@ -33,9 +33,11 @@ typedef enum {
 
 
 // // Test Mode
-#define SDK_BASE_URL(xx) [NSString stringWithFormat:@"https://mobiletest.payumoney.com/%@",xx]
-#define Web_Payment_URL @"https://mobiletest.payu.in/_seamless_payment"
-#define SDK_Hash_Url  @"http://mobiletest.payumoney.com/payment/op/calculateHashForTest"
+#define SDK_BASE_URL(xx) IS_DEBUG ? [NSString stringWithFormat:@"https://mobiletest.payumoney.com/%@",xx] : [NSString stringWithFormat:@"https://www.payumoney.com/%@",xx]
+
+#define Web_Payment_URL IS_DEBUG ? @"https://mobiletest.payu.in/_seamless_payment" : @"https://secure.payu.in/_seamless_payment"
+
+#define SDK_Hash_Url  IS_DEBUG ? @"http://mobiletest.payumoney.com/payment/op/calculateHashForTest" : @"http://www.payumoney.com/payment/op/calculateHashForTest"
 
 //
 

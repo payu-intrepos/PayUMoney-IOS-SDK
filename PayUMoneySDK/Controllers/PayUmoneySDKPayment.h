@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "PayuMoneySDKLoginService.h"
-
+#import "PayUConfigBO.h"
 @interface PayUmoneySDKPayment : NSObject<LoginServiceDelegate>
 
 @property(nonatomic,weak) UIViewController *callBackController;
 
--(void)startSDK : (NSDictionary *)dict withCallBack:(id)delegate;
+-(void)startSDK : (PayUConfigBO *)config withCallBack:(id)delegate;
 
 @end

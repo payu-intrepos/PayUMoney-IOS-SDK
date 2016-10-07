@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613894B01DA7AD6C0027291C /* PayUConfigBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 613894AF1DA7AD6C0027291C /* PayUConfigBO.m */; };
 		6152154C1CD88D8800D1E5E4 /* ConfigBO.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152154B1CD88D8800D1E5E4 /* ConfigBO.m */; };
 		616596511D3376DF006D8766 /* PayUmoneySDKPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 616596501D3376DF006D8766 /* PayUmoneySDKPayment.m */; };
 		61A1AF721D2E8CE7006D0120 /* PayuMoneySDKStartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A1AF711D2E8CE7006D0120 /* PayuMoneySDKStartingViewController.m */; };
@@ -74,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613894AE1DA7AD6C0027291C /* PayUConfigBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConfigBO.h; sourceTree = "<group>"; };
+		613894AF1DA7AD6C0027291C /* PayUConfigBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUConfigBO.m; sourceTree = "<group>"; };
 		6152154A1CD88D8800D1E5E4 /* ConfigBO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigBO.h; sourceTree = "<group>"; };
 		6152154B1CD88D8800D1E5E4 /* ConfigBO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigBO.m; sourceTree = "<group>"; };
 		6165964F1D3376DF006D8766 /* PayUmoneySDKPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUmoneySDKPayment.h; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 		AE97992C1BE8C62F00FAFD28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				613894AE1DA7AD6C0027291C /* PayUConfigBO.h */,
+				613894AF1DA7AD6C0027291C /* PayUConfigBO.m */,
 				711C6E6E1BE8C9CF00A8DE4C /* PayuMoneySDKRequestParams.h */,
 				711C6E6F1BE8C9CF00A8DE4C /* PayuMoneySDKRequestParams.m */,
 			);
@@ -470,7 +475,7 @@
 				TargetAttributes = {
 					AE9798DC1BE8C56D00FAFD28 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 3HFD6W97H4;
+						DevelopmentTeam = 3T2M5UN5C5;
 					};
 				};
 			};
@@ -544,6 +549,7 @@
 				AE9799441BE8C62F00FAFD28 /* PaymentTableViewCell.m in Sources */,
 				6152154C1CD88D8800D1E5E4 /* ConfigBO.m in Sources */,
 				717C3FBA1C27DF0D00461101 /* NSString+Encode.m in Sources */,
+				613894B01DA7AD6C0027291C /* PayUConfigBO.m in Sources */,
 				7110C4861BFC63FA00A8A4D5 /* WebViewJavascriptBridge.m in Sources */,
 				711C6E7F1BE8DBA000A8DE4C /* PayuMoneySDKRequestManager.m in Sources */,
 				717C3FFF1C27DF4200461101 /* PayuMoneySDKSetUpCardDetails.m in Sources */,
@@ -676,15 +682,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Prashanth Susarla (3B8NKWJ8NS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Prashanth Susarla (3B8NKWJ8NS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: honey lakhani (PVLF5F3PZW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: honey lakhani (PVLF5F3PZW)";
+				DEVELOPMENT_TEAM = 3T2M5UN5C5;
 				GCC_PREFIX_HEADER = "${SRCROOT}/PayUMoneySDK/Connections/Service-Prefix.pch";
 				INFOPLIST_FILE = PayUMoneySDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PayUmoney.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c104d8c9-f978-4866-811b-3912c5c4d1ed";
+				PROVISIONING_PROFILE = "e225fced-8aea-41d7-a2e8-df40da4d9afd";
+				PROVISIONING_PROFILE_SPECIFIER = "payu wild card dev profile";
 			};
 			name = Debug;
 		};
@@ -692,15 +700,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Prashanth Susarla (3B8NKWJ8NS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Prashanth Susarla (3B8NKWJ8NS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: honey lakhani (PVLF5F3PZW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: honey lakhani (PVLF5F3PZW)";
+				DEVELOPMENT_TEAM = 3T2M5UN5C5;
 				GCC_PREFIX_HEADER = "${SRCROOT}/PayUMoneySDK/Connections/Service-Prefix.pch";
 				INFOPLIST_FILE = PayUMoneySDK/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PayUmoney.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c104d8c9-f978-4866-811b-3912c5c4d1ed";
+				PROVISIONING_PROFILE = "e225fced-8aea-41d7-a2e8-df40da4d9afd";
+				PROVISIONING_PROFILE_SPECIFIER = "payu wild card dev profile";
 			};
 			name = Release;
 		};

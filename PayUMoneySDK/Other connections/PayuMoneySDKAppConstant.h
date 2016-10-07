@@ -13,14 +13,20 @@
 
 
 
-// Set Input Params Fields Here
+//TODO: Set Input Params Fields Here
 
 
-#define MERCHANT_KEY @"FCstqb"
-#define MERCHANT_SALT @"MBgjYaFG"
+
+#define MERCHANT_KEY @""
+#define MERCHANT_SALT @""
 #define MERCHANT_SURL @"https://test.payumoney.com/mobileapp/payumoney/success.php"
 #define MERCHANT_FURL @"https://test.payumoney.com/mobileapp/payumoney/failure.php"
-#define MERCHANT_ID @"4827834"
+#define MERCHANT_ID @""
+
+
+//TODO: Set it to 0 for LIVE transactions and 1 is for TEST environment
+#define IS_DEBUG 1
+
 
 
 #define USER_INPUT_EMAIL @"piyush.jain@payu.in"
@@ -30,11 +36,11 @@
 #define USER_INPUT_FIRST_NAME @"piyush"
 
 
-
-#define kNotificationTxnCompleted @"txnCompleted"
-#define kNotificationSuccessTxn @"successTxn"
-#define kNotificationFailureTxn @"failureTxn"
-#define kNotificationRejectTxn @"rejectTxn"
+//Notification observers for payment callback
+#define kNotificationTxnCompleted @"kNotificationTxnCompleted"
+#define kNotificationSuccessTxn @"kNotificationSuccessTxn"
+#define kNotificationFailureTxn @"kNotificationFailureTxn"
+#define kNotificationRejectTxn @"kNotificationRejectTxn"
 
 
 

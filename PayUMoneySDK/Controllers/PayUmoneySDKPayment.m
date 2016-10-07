@@ -15,12 +15,12 @@
 @implementation PayUmoneySDKPayment
 @synthesize callBackController;
 
--(void)startSDK : (NSDictionary *)dict withCallBack:(id)delegate
+-(void)startSDK : (PayUConfigBO *)config withCallBack:(id)delegate
 {
-    if(dict)
+    if(config)
     {
         self.callBackController = delegate;
-        [PayuMoneySDKRequestParams initWithDict : (NSDictionary *)dict];
+        [PayuMoneySDKRequestParams initWithDict : config];
         PayuMoneySDKRequestParams *paramsBO  = [PayuMoneySDKRequestParams sharedInstance];
         if (![paramsBO.hashValue isEqualToString:@""]) {
             [self checkForLogin];
@@ -30,6 +30,9 @@
             ALERT(SDK_APP_TITLE, @"Hash not calculated");
         }
         
+    }
+    else{
+        ALERT(SDK_APP_TITLE, @"Unable to proceed");
     }
 }
 -(void)checkForLogin

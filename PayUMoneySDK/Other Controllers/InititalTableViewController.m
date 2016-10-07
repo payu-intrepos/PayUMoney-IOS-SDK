@@ -9,6 +9,8 @@
 #import "InititalTableViewController.h"
 #import "PayUmoneySDKPayment.h"
 #import "PayuMoneySDKFinalViewController.h"
+#import "PayUConfigBO.h"
+#import "PayuMoneySDKAppConstant.h"
 
 #define generictag 999
 
@@ -19,7 +21,7 @@
     UIToolbar* numberToolbar;
     UITextField *activeTxtFld;
     CGFloat value;
-
+    
 }
 @end
 
@@ -27,9 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     arr = @[@"Amount",@"Txn ID",@"Merchant ID",@"key",@"salt",@"phone",@"Firstname",@"Email",@"Product Info",@"SURL",@"FURL"];
+    arr = @[@"Amount",@"Txn ID",@"Merchant ID",@"key",@"salt",@"phone",@"Firstname",@"Email",@"Product Info",@"SURL",@"FURL"];
     [self registerForKeyboardNotifications];
-     numberToolbar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar= [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackTranslucent;
     numberToolbar.items = @[[[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelNumberPad)],
                             [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -60,7 +62,7 @@
     CGFloat ypos = 10;
     CGFloat height = 40;
     CGFloat width = self.sampleTblVw.frame.size.width - 20;
-
+    
     UITextField *textfld = [[UITextField alloc]initWithFrame:CGRectMake(xpos, ypos, width, height)];
     textfld.placeholder = [NSString stringWithFormat:@"Enter %@",arr[indexPath.row]];
     textfld.borderStyle = UITextBorderStyleRoundedRect;
@@ -113,9 +115,6 @@
     UITextField *txtFldEmail = (UITextField *)[self.view viewWithTag:generictag+7];
     UITextField *txtFldProdInfo = (UITextField *)[self.view viewWithTag:generictag+8];
     
-    
-    
-    
     // For Testing Purpose use static values
     NSString *txnID = [txtFldTxnID hasText]?txtFldTxnID.text : USER_INPUT_TXN_ID;
     NSString *phone = [txtFldPhone hasText]?txtFldPhone.text : USER_INPUT_PHONE;
@@ -124,32 +123,32 @@
     NSString *prod_info = [txtFldProdInfo hasText]?txtFldProdInfo.text : USER_INPUT_PROD_INFO;
     
     
+    PayUConfigBO *objConfig = [[PayUConfigBO alloc] init];
     
-    // Prepare Input Dictionary
-    NSMutableDictionary *dictParams = [NSMutableDictionary new];
-    
-    
-    [dictParams setObject:amount forKey:SDK_amount];
-    [dictParams setObject:firstName forKey:SDK_firstName];
-    [dictParams setObject:phone forKey:SDK_phone];
-    [dictParams setObject:email forKey:SDK_email];
-    [dictParams setObject:prod_info forKey:SDK_productinfo];
-    [dictParams setObject:txnID forKey:SDK_txnId];
+    objConfig.firstName = firstName;
+    objConfig.phone = phone;
+    objConfig.emailId = email;
+    objConfig.transactionId = txnID;
+    objConfig.productInfo = prod_info;
     
     
-    //TODO: Set values in App PayuMoneySDKAppConstant
+    objConfig.amount = amount;
+    objConfig.merchantId = MERCHANT_ID;
+    objConfig.merchantKey = MERCHANT_KEY;
+    objConfig.merchantSalt = MERCHANT_SALT;
+    objConfig.appSURL = MERCHANT_SURL;
+    objConfig.appFURL = MERCHANT_FURL;
     
-    [dictParams setObject:MERCHANT_ID forKey:SDK_merchantId];
-    [dictParams setObject:MERCHANT_KEY forKey:SDK_key];
-    [dictParams setObject:MERCHANT_SALT forKey:SDK_salt];
-    [dictParams setObject:MERCHANT_SURL forKey:SDK_surl];
-    [dictParams setObject:MERCHANT_FURL forKey:SDK_furl];
+    objConfig.udf1 = @"";
+    objConfig.udf2 = @"";
+    objConfig.udf3 = @"";
+    objConfig.udf4 = @"";
+    objConfig.udf5 = @"";
     
-
     // Start SDK Call Here
     PayUmoneySDKPayment *objPaymentSDK = [[PayUmoneySDKPayment alloc] init];
-    [objPaymentSDK startSDK:dictParams withCallBack:self];
-
+    [objPaymentSDK startSDK:objConfig withCallBack:self];
+    
     [self addObserverForSDKTransactionDetails];
 }
 
@@ -160,34 +159,47 @@
 
 -(void)callBackFromPayUTransaction:(NSNotification*)notification
 {
-    UIStoryboard *sdkSB = [UIStoryboard storyboardWithName:@"PayUSDK" bundle:nil];
-    PayuMoneySDKFinalViewController *finalVC = [sdkSB instantiateViewControllerWithIdentifier:@"finalVC"];
     
+    // Payment ID :
+    NSString *paymentID = [[PayuMoneySDKAppConstant sharedInstance].dictCurrentTxn  objectForKey:KEY_PAYMENT_ID];
+    NSLog(@"Paymment ID = %@",paymentID);
+    
+    
+    NSString *serverMessage = @"";
     if([notification.object isEqual:kNotificationSuccessTxn])
     {
-        finalVC.msg = @"congrats! Payment is successful!!";
+        serverMessage = @"congrats! Payment is successful!!";
     }
     else if([notification.object isEqual:kNotificationFailureTxn])
     {
-        finalVC.msg = @"Oops!!! Payment Failed";
+        serverMessage = @"Oops!!! Payment Failed";
     }
     else if([notification.object isEqual:kNotificationRejectTxn]){
-        finalVC.msg  = @"Payment Cancelled";
+        serverMessage  = @"Payment Cancelled";
     }
     
     // Remove Notification Observers
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTxnCompleted object:nil];
-
-    
     // Pop to Current Controller
     [self.navigationController popToViewController:self animated:YES];
     
-    [self.navigationController pushViewController:finalVC animated:YES];
+    
+    // Navigate to Transaction Completion Screen
+    [self showTransactionCompletionScreenWithPaymentMessage:serverMessage];
+    
 }
 
 
 
-
+-(void)showTransactionCompletionScreenWithPaymentMessage:(NSString*)message{
+    // Navigate to Transaction Completion Screen
+    UIStoryboard *sdkSB = [UIStoryboard storyboardWithName:@"PayUSDK" bundle:nil];
+    PayuMoneySDKFinalViewController *finalVC = [sdkSB instantiateViewControllerWithIdentifier:@"finalVC"];
+    finalVC.msg = message;
+    
+    [self.navigationController pushViewController:finalVC animated:YES];
+    
+}
 
 
 
@@ -231,7 +243,7 @@
     CGFloat value1 = value;
     CGFloat loc = ((activeTxtFld.tag-generictag)+1)*60;
     value = [self checkForKeyboard:activeTxtFld.frame.origin.y +loc withTextFieldHeight:activeTxtFld.frame.size.height withNotification :notification];
-   
+    
     
     [self.sampleTblVw setContentOffset:CGPointMake(0,value)];
 }
