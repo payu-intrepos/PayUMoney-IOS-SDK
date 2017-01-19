@@ -20,40 +20,42 @@ PayUmoney iOS SDK broadly offers following features.
 * In your target’s general settings, make sure you have entry ‘PayUmoney_SDK.framework’ in Embedded Binaries and ‘Linked Frameworks and Libraries’
 * Import umbrella header file into the View Controller from where you  to initiate the payment
 ```sh
-    #import <PayUmoney_SDK/PayUmoney_SDK.h>
+#import <PayUmoney_SDK/PayUmoney_SDK.h>
 ```
 * To start the payment process, you need to create an object of type ‘PUMRequestParams’
-    ```sh
-    self.params = [[PUMRequestParams alloc] init];
-    ```
+```sh
+self.params = [[PUMRequestParams alloc] init];
+```
 * Set the mandatory properties of ‘params’ object
-    ```sh
-    self.params.environment = PUMEnvironmentProduction;
-	self.params.surl = @“https://www.payumoney.com/mobileapp/payumoney/success.php”
-	self.params.furl = @“https://www.payumoney.com/mobileapp/payumoney/failure.php”
-	self.params.amount = @"100";
-	self.params.key = @"";
-	self.params.merchantid = @"";
-	self.params.txnid =@“”;
-	//Set your Surl/Furl here
-	self.params.delegate = self;
-	self.params.firstname = @"";
-	self.params.productinfo = @"";
-	self.params.email = @"";
-	self.params.phone = @"";
-	self.params.udf1 = @"";
-	self.params.udf2 = @"";
-	self.params.udf3 = @"";
-	self.params.udf4 = @"";
-	self.params.udf5 = @"";
-	self.params.udf6 = @"";
-	self.params.udf7 = @"";
-	self.params.udf8 = @"";
-	self.params.udf9 = @"";
-	self.params.udf10 = @"";
-	//get hash from your server
-	self.params.hashValue = @“hash from server”; 
-    ```
+
+```sh
+self.params.environment = PUMEnvironmentProduction;
+self.params.surl = @“https://www.payumoney.com/mobileapp/payumoney/success.php”
+self.params.furl = @“https://www.payumoney.com/mobileapp/payumoney/failure.php”
+self.params.amount = @"100";
+self.params.key = @"";
+self.params.merchantid = @"";
+self.params.txnid =@“”;
+//Set your Surl/Furl here
+self.params.delegate = self;
+self.params.firstname = @"";
+self.params.productinfo = @"";
+self.params.email = @"";
+self.params.phone = @"";
+self.params.udf1 = @"";
+self.params.udf2 = @"";
+self.params.udf3 = @"";
+self.params.udf4 = @"";
+self.params.udf5 = @"";
+self.params.udf6 = @"";
+self.params.udf7 = @"";
+self.params.udf8 = @"";
+self.params.udf9 = @"";
+self.params.udf10 = @"";
+//get hash from your server
+self.params.hashValue = @“hash from server”;
+```
+
 ### HASH CALCULATION
 ```sh
 hashSequence = key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|salt.
@@ -67,11 +69,11 @@ Create a UINavigationController with controller created in step 7 as root view c
 Present the navigation controller created in step 8.
 ```sh
 PUMMainVController *paymentVC = [[PUMMainVController alloc] init];
- UINavigationController *paymentNavController = [[UINavigationController alloc] initWithRootViewController:paymentVC];    
+UINavigationController *paymentNavController = [[UINavigationController alloc] initWithRootViewController:paymentVC];    
 
-	    [self presentViewController:paymentNavController
-                       animated:YES
-                     completion:nil];
+[self presentViewController:paymentNavController
+animated:YES
+completion:nil];
 
 ```
 
@@ -81,10 +83,10 @@ To know when the payment has completed, implement the following methods in your 
 
 ```sh
 -(void)transactionCompletedWithResponse:(NSDictionary*)response
-                       errorDescription:(NSError* )error {    
+errorDescription:(NSError* )error {    
 }
 -(void)transactinFailedWithResponse:(NSDictionary* )response
-                   errorDescription:(NSError* )error {
+errorDescription:(NSError* )error {
 }
 -(void)transactinExpiredWithResponse: (NSString *)msg {
 }
