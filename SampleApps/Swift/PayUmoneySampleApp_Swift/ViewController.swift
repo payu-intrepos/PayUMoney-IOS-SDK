@@ -64,7 +64,6 @@ class ViewController: UIViewController {
       params.udf8 = "";
       params.udf9 = "";
       params.udf10 = "";
-    
     //We strictly recommend that you calculate hash on your server end. Just so that you can quickly see demo app working, we are providing a means to do it here. Once again, this should be avoided.
     if(params.environment == PUMEnvironment.production){
       generateHashForProdAndNavigateToSDK()
@@ -79,11 +78,18 @@ class ViewController: UIViewController {
   func generateHashForProdAndNavigateToSDK() -> Void {
     let txnid = params.txnid!
     //add your salt in place of 'salt' if you want to test on live environment.
-    //We suggest to calculate hash from server and not to keep the salt in code as it is a severe of security vulnerability.
+    //We suggest to calculate hash from server and not to keep the salt in app as it is a severe security vulnerability.
     let hashSequence : NSString = "\(params.key)|\(txnid)|\(params.amount)|\(params.productinfo)|\(params.firstname)|\(params.email)|||||||||||salt" as NSString
     let data :NSString = utils.createSHA512(hashSequence as String!) as NSString
     params.hashValue = data as String!;
        startPaymentFlow();
+  }
+
+
+  func transactinCanceledByUser() -> Void {
+    self.dismiss(animated: true){
+      self.showAlertViewWithTitle(title: "Message", message: "Payment Cancelled ")
+    }
   }
  
   func startPaymentFlow() -> Void {
@@ -91,6 +97,19 @@ class ViewController: UIViewController {
     var paymentNavController : UINavigationController;
     paymentNavController = UINavigationController(rootViewController: paymentVC);
     self.present(paymentNavController, animated: true, completion: nil)
+  }
+  
+  func transactionCompleted(withResponse response : NSDictionary,errorDescription error:NSError) -> Void {
+    self.dismiss(animated: true){
+      self.showAlertViewWithTitle(title: "Message", message: "congrats! Payment is Successful")
+    }
+  }
+  
+
+  func transactinFailed(withResponse response : NSDictionary,errorDescription error:NSError) -> Void {
+    self.dismiss(animated: true){
+      self.showAlertViewWithTitle(title: "Message", message: "Oops!!! Payment Failed")
+    }
   }
   
   func showAlertViewWithTitle(title : String,message:String) -> Void {
@@ -103,31 +122,9 @@ class ViewController: UIViewController {
     self.present(alertController, animated: true, completion: nil)
   }
 
-//MARK: Transaction related callbacks
+// MARK:HASH CALCULATION
   
-  func transactinCanceledByUser() -> Void {
-    self.dismiss(animated: true){
-      self.showAlertViewWithTitle(title: "Message", message: "Payment Cancelled ")
-    }
-  }
-  
-  func transactionCompletedWithResponse(response : NSDictionary,error:NSError) -> Void {
-    self.dismiss(animated: true){
-      self.showAlertViewWithTitle(title: "Message", message: "congrats! Payment is Successful")
-    }
-  }
-  
-  func transactinFailedWithResponse(response : NSDictionary,error:NSError) -> Void {
-    self.dismiss(animated: true){
-      self.showAlertViewWithTitle(title: "Message", message: "Oops!!! Payment Failed")
-    }
-  }
-  
-// MARK:Hash Calculation
-  
-/**
-  * hash calculation strictly recommended to be done on your server end. This is just to show the hash sequence format and oe the api call for hash should be. Encryption is SHA-512.
- */
+  //hash calculation strictly recommended to be done on your server end. This is just to show the hash sequence format and oe the api call for hash should be. Encryption is SHA-512.
  func prepareHashBody()->NSString{
   return "key=\(params.key!)&amount=\(params.amount!)&txnid=\(params.txnid!)&productinfo=\(params.productinfo!)&email=\(params.email!)&firstname=\(params.firstname!)" as NSString;
   }
