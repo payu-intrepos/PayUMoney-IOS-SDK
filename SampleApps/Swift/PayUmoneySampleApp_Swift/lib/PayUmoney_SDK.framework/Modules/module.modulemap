@@ -1,6 +1,0 @@
-framework module PayUmoney_SDK {
-  umbrella header "PayUmoney_SDK.h"
-
-  export *
-  module * { export * }
-}
