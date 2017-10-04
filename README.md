@@ -11,8 +11,9 @@ PayUmoney iOS SDK broadly offers following features.
 * Guest checkout if you do not have PayUmoney account
 * Payments via credit/debit card (CC, DC) or netbanking payments (NB)
 * Saving Credit/Debit cards into user's account for easier future payments by abiding The Payment Card Industry Data Security Standard (PCI DSS)
-* One Tap functionality for the Saved Cards
 * Simplified bank page interaction using Custom Browser.
 
 ### Technical Integration
 For integration documentation, kindly visit our [Wiki page](https://github.com/payu-intrepos/PayUMoney-IOS-SDK/wiki)
+
+#[Important Instructions for the Releasing to Apple](https://github.com/citruspay/citruspay-ios-sdk/wiki/6.-Releasing-to-Apple)

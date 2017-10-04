@@ -7,4 +7,5 @@ framework module CitrusGraphics {
 
 module CitrusGraphics.Swift {
     header "CitrusGraphics-Swift.h"
+    requires objc
 }
