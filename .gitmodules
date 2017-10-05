@@ -1,0 +1,6 @@
+[submodule "Dependencies/Kingfisher"]
+	path = Dependencies/Kingfisher
+	url = https://github.com/onevcat/Kingfisher.git
+[submodule "Dependencies/CitrusGraphic/citruspay-ios-sdk"]
+	path = Dependencies/CitrusGraphic/citruspay-ios-sdk
+	url = https://github.com/citruspay/citruspay-ios-sdk.git
