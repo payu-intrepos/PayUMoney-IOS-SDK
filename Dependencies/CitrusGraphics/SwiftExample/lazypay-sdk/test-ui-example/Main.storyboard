@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hJP-Ri-ZqE">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="3i1-YH-1JR">
+            <objects>
+                <navigationController id="hJP-Ri-ZqE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y3C-Wp-mco">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jv0-zk-xRR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ziH-Yf-ITf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1104" y="269"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LazyPayExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CitrusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wfO-Dd-1dZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="RlA-Ic-w1T"/>
+                                    <constraint firstAttribute="height" constant="37" id="f2u-fK-k6p"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l8C-YA-Hkr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="qNL-XI-cKD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ZH-ft-oyj">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L3Q-9k-NS8">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4N-Rh-Nm7">
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.81999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gM0-Xc-XbZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                <state key="normal" title="Check Eligibility">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="canMakePayment" destination="BYZ-38-t0r" eventType="touchUpInside" id="3t4-R4-Ek8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyh-oW-9p3">
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.81999999999999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NBp-1F-bKo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                <state key="normal" title="Initiate Payment">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="initiatePayment" destination="BYZ-38-t0r" eventType="touchUpInside" id="VbC-uV-2JI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="© Citrus Payments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-dr-TmD">
+                                <frame key="frameInset" minX="110" minY="626" width="154" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5I8-5u-DPm"/>
+                                    <constraint firstAttribute="width" constant="154" id="lNc-4b-7hR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TKN-4t-OQV">
+                                <color key="color" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfO-Dd-1dZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="1E4-s9-V9a"/>
+                            <constraint firstItem="4ZH-ft-oyj" firstAttribute="leading" secondItem="L3Q-9k-NS8" secondAttribute="leading" id="30J-Ui-bpd"/>
+                            <constraint firstItem="wfO-Dd-1dZ" firstAttribute="centerX" secondItem="TKN-4t-OQV" secondAttribute="centerX" id="4EK-Dh-ZHg"/>
+                            <constraint firstItem="lyh-oW-9p3" firstAttribute="leading" secondItem="S4N-Rh-Nm7" secondAttribute="leading" id="7gZ-eb-mRF"/>
+                            <constraint firstItem="S4N-Rh-Nm7" firstAttribute="top" secondItem="TKN-4t-OQV" secondAttribute="bottom" constant="8" symbolic="YES" id="Cqi-8Z-P1o"/>
+                            <constraint firstItem="l8C-YA-Hkr" firstAttribute="top" secondItem="wfO-Dd-1dZ" secondAttribute="bottom" constant="48" id="Duk-iV-XHa"/>
+                            <constraint firstItem="4ZH-ft-oyj" firstAttribute="leading" secondItem="l8C-YA-Hkr" secondAttribute="leading" id="HDB-hO-WU0"/>
+                            <constraint firstItem="l8C-YA-Hkr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSa-jE-qdc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ULz-dr-TmD" secondAttribute="bottom" constant="7" id="Jle-gy-KWL"/>
+                            <constraint firstItem="l8C-YA-Hkr" firstAttribute="trailing" secondItem="4ZH-ft-oyj" secondAttribute="trailing" id="LoK-IT-od9"/>
+                            <constraint firstItem="4ZH-ft-oyj" firstAttribute="trailing" secondItem="L3Q-9k-NS8" secondAttribute="trailing" id="M3n-cv-m9p"/>
+                            <constraint firstItem="TKN-4t-OQV" firstAttribute="top" secondItem="L3Q-9k-NS8" secondAttribute="bottom" constant="7" id="PWu-1z-3Mc"/>
+                            <constraint firstItem="S4N-Rh-Nm7" firstAttribute="trailing" secondItem="L3Q-9k-NS8" secondAttribute="trailing" id="QU9-7G-gIb"/>
+                            <constraint firstItem="TKN-4t-OQV" firstAttribute="centerX" secondItem="ULz-dr-TmD" secondAttribute="centerX" id="RZA-Im-3uS"/>
+                            <constraint firstItem="TKN-4t-OQV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YA9-jd-UFZ"/>
+                            <constraint firstItem="lyh-oW-9p3" firstAttribute="top" secondItem="S4N-Rh-Nm7" secondAttribute="bottom" constant="8" symbolic="YES" id="bJ7-ZO-wVH"/>
+                            <constraint firstItem="lyh-oW-9p3" firstAttribute="trailing" secondItem="S4N-Rh-Nm7" secondAttribute="trailing" id="jxA-iG-xNg"/>
+                            <constraint firstItem="L3Q-9k-NS8" firstAttribute="top" secondItem="4ZH-ft-oyj" secondAttribute="bottom" constant="10" id="nDf-Ag-lFa"/>
+                            <constraint firstItem="S4N-Rh-Nm7" firstAttribute="leading" secondItem="L3Q-9k-NS8" secondAttribute="leading" id="rOh-ma-WYg"/>
+                            <constraint firstItem="4ZH-ft-oyj" firstAttribute="top" secondItem="l8C-YA-Hkr" secondAttribute="bottom" constant="9" id="uiz-SS-hSf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kun-xm-eBi">
+                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="LB9-4o-8Nb">
+                            <connections>
+                                <action selector="logOutButtonAction" destination="BYZ-38-t0r" id="54T-73-NNy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="L3Q-9k-NS8" id="5aT-V7-DtC"/>
+                        <outlet property="checkEligibliytButton" destination="S4N-Rh-Nm7" id="xu3-La-eOH"/>
+                        <outlet property="emailTextField" destination="4ZH-ft-oyj" id="OnM-O3-9Xg"/>
+                        <outlet property="indicatorView" destination="TKN-4t-OQV" id="Fge-1r-Vdc"/>
+                        <outlet property="initiatePaytButton" destination="lyh-oW-9p3" id="koa-Ji-upi"/>
+                        <outlet property="mobileTextField" destination="l8C-YA-Hkr" id="u2c-hO-sB3"/>
+                        <outlet property="signOutButton" destination="LB9-4o-8Nb" id="QDn-Vn-zI7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="269"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CitrusLogo" width="112" height="112"/>
+    </resources>
+</document>

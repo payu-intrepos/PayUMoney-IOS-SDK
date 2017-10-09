@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'CitrusGraphics_Example' do
+  pod 'CitrusGraphics', :path => '../../../../'
+  pod 'CitrusPay', :path => '../../../../'
+
+  target 'CitrusGraphics_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

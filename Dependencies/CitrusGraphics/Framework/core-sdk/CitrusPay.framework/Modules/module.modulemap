@@ -1,0 +1,11 @@
+framework module CitrusPay {
+  umbrella header "CitrusPay.h"
+
+  export *
+  module * { export * }
+}
+
+module CitrusPay.Swift {
+    header "CitrusPay-Swift.h"
+    requires objc
+}

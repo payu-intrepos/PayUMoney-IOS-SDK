@@ -15,20 +15,10 @@ platform :ios do
     scan(scheme: "Kingfisher-tvOS", clean: true)
   end
   
-  desc "Build for Carthage"
-  lane :carthage_lint do
-      Actions.sh("cd .. && carthage build --no-skip-current && cd fastlane")
-  end
-  
-  desc "Lint for Cocoapod"
-  lane :pod_lint do
-      Actions.sh("cd .. && pod lib lint && cd fastlane")
-  end
-  
   desc "Lint"
   lane :lint do
-      carthage_lint
-      pod_lint
+      carthage(command: "build", no_skip_current: true)
+      pod_lib_lint
   end
 
   desc "Release new version"
@@ -40,7 +30,7 @@ platform :ios do
       ensure_git_status_clean
       
       test_all_schemes
-      carthage_lint
+      lint
       
       sync_build_number_to_git
       increment_version_number(version_number: target_version)
@@ -48,6 +38,8 @@ platform :ios do
 
       log = extract_current_change_log(version: target_version)
       release_log = update_change_log(log: log)
+
+      doc(version: target_version)
 
       git_commit_all(message: "Bump version to #{target_version}")
       
@@ -68,6 +60,20 @@ platform :ios do
 
   lane :podpush do
     pod_push
+  end
+
+  lane :doc do |options|
+      target_version = options[:version]
+      Actions.sh("cd .. && jazzy \
+                        --clean \
+                        --author \"Wei Wang\" \
+                        --author_url https://onevcat.com \
+                        --github_url https://github.com/onevcat/Kingfisher \
+                        --github-file-prefix https://github.com/onevcat/Kingfisher/tree/#{target_version} \
+                        --module-version #{target_version} \
+                        --module Kingfisher \
+                        --root-url http://onevcat.github.io/Kingfisher/ \
+                        --output docs/")
   end
 
   after_all do |lane|

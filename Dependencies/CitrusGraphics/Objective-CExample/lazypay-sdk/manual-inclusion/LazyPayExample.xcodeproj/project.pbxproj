@@ -1,0 +1,778 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		763477B81E3B801E007ED364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 763477B71E3B801E007ED364 /* Main.storyboard */; };
+		763477BC1E3B8069007ED364 /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763477BB1E3B8069007ED364 /* Common.xcassets */; };
+		763477C21E3B8080007ED364 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 763477BF1E3B8080007ED364 /* SVSegmentedControl.m */; };
+		763477C31E3B8080007ED364 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = 763477C11E3B8080007ED364 /* SVSegmentedThumb.m */; };
+		768D710C1E027C630000BF8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D710B1E027C630000BF8A /* main.m */; };
+		768D710F1E027C630000BF8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D710E1E027C630000BF8A /* AppDelegate.m */; };
+		768D71251E027C630000BF8A /* LazyPayExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D71241E027C630000BF8A /* LazyPayExampleTests.m */; };
+		768D71411E027CE10000BF8A /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768D71361E027CE10000BF8A /* HomeViewController.m */; };
+		768D71801E027D6A0000BF8A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71691E027D4A0000BF8A /* Kingfisher.framework */; };
+		768D71811E027D6A0000BF8A /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71691E027D4A0000BF8A /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		768D71841E027D6A0000BF8A /* JSONModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71581E027D420000BF8A /* JSONModel.framework */; };
+		768D71851E027D6A0000BF8A /* JSONModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71581E027D420000BF8A /* JSONModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		768D71881E027D6A0000BF8A /* CitrusGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768D714F1E027D350000BF8A /* CitrusGraphics.framework */; };
+		768D71891E027D6A0000BF8A /* CitrusGraphics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768D714F1E027D350000BF8A /* CitrusGraphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		768D718A1E027D6A0000BF8A /* CitrusPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768D714A1E027D1B0000BF8A /* CitrusPay.framework */; };
+		768D718B1E027D6A0000BF8A /* CitrusPay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768D714A1E027D1B0000BF8A /* CitrusPay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		768D718C1E027D6A0000BF8A /* LazyPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71451E027D0F0000BF8A /* LazyPay.framework */; };
+		768D718D1E027D6A0000BF8A /* LazyPay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768D71451E027D0F0000BF8A /* LazyPay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		768D71211E027C630000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D70FF1E027C630000BF8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 768D71061E027C630000BF8A;
+			remoteInfo = LazyPayExample;
+		};
+		768D71571E027D420000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71531E027D410000BF8A /* JSONModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92C9BC3D1B19A51100D79B06;
+			remoteInfo = JSONModel;
+		};
+		768D71681E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D351AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+		768D716A1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D13F49D61BEDA67C00CE335D;
+			remoteInfo = "Kingfisher-tvOS";
+		};
+		768D716C1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B2944481C3D01B20088C3E7;
+			remoteInfo = "Kingfisher-macOS";
+		};
+		768D716E1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D16799EB1C4E74460020FD12;
+			remoteInfo = "Kingfisher-watchOS";
+		};
+		768D71701E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D0B1AD2CFA600CFC3EB;
+			remoteInfo = "Kingfisher-Demo";
+		};
+		768D71721E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D13F49C21BEDA53F00CE335D;
+			remoteInfo = "Kingfisher-tvOS-Demo";
+		};
+		768D71741E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B2944551C3D03880088C3E7;
+			remoteInfo = "Kingfisher-macOS-Demo";
+		};
+		768D71761E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1679A391C4E78B20020FD12;
+			remoteInfo = "Kingfisher-watchOS-Demo";
+		};
+		768D71781E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1679A451C4E78B20020FD12;
+			remoteInfo = "Kingfisher-watchOS-Demo Extension";
+		};
+		768D717A1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1ED2D3F1AD2D09F00CFC3EB;
+			remoteInfo = KingfisherTests;
+		};
+		768D717C1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4B37667F1C478F940001443F;
+			remoteInfo = "KingfisherTests-tvOS";
+		};
+		768D717E1E027D4A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D10EC2311C3D632300A4211C;
+			remoteInfo = "KingfisherTests-macOS";
+		};
+		768D71821E027D6A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D1ED2D341AD2D09F00CFC3EB;
+			remoteInfo = "Kingfisher-iOS";
+		};
+		768D71861E027D6A0000BF8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768D71531E027D410000BF8A /* JSONModel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92C9BC3C1B19A51100D79B06;
+			remoteInfo = JSONModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		768D718E1E027D6A0000BF8A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				768D71851E027D6A0000BF8A /* JSONModel.framework in Embed Frameworks */,
+				768D71891E027D6A0000BF8A /* CitrusGraphics.framework in Embed Frameworks */,
+				768D71811E027D6A0000BF8A /* Kingfisher.framework in Embed Frameworks */,
+				768D718B1E027D6A0000BF8A /* CitrusPay.framework in Embed Frameworks */,
+				768D718D1E027D6A0000BF8A /* LazyPay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		763477B71E3B801E007ED364 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		763477B91E3B8058007ED364 /* MerchantConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MerchantConstants.h; path = "../../../Common-Data/MerchantConstants.h"; sourceTree = "<group>"; };
+		763477BA1E3B8058007ED364 /* TestParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestParams.h; path = "../../../Common-Data/TestParams.h"; sourceTree = "<group>"; };
+		763477BB1E3B8069007ED364 /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Common.xcassets; path = "../../../Common-Data/Common.xcassets"; sourceTree = "<group>"; };
+		763477BE1E3B8080007ED364 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		763477BF1E3B8080007ED364 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		763477C01E3B8080007ED364 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		763477C11E3B8080007ED364 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
+		768D71071E027C630000BF8A /* LazyPayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LazyPayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		768D710B1E027C630000BF8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		768D710D1E027C630000BF8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		768D710E1E027C630000BF8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		768D711B1E027C630000BF8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768D71201E027C630000BF8A /* LazyPayExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyPayExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		768D71241E027C630000BF8A /* LazyPayExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazyPayExampleTests.m; sourceTree = "<group>"; };
+		768D71261E027C630000BF8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768D71351E027CE10000BF8A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		768D71361E027CE10000BF8A /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		768D71451E027D0F0000BF8A /* LazyPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LazyPay.framework; sourceTree = "<group>"; };
+		768D714A1E027D1B0000BF8A /* CitrusPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CitrusPay.framework; sourceTree = "<group>"; };
+		768D714F1E027D350000BF8A /* CitrusGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CitrusGraphics.framework; sourceTree = "<group>"; };
+		768D71531E027D410000BF8A /* JSONModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONModel.xcodeproj; path = ../../../Dependency/JSONModel/JSONModel.xcodeproj; sourceTree = "<group>"; };
+		768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = ../../../Dependency/Kingfisher/Kingfisher.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		768D71041E027C630000BF8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768D71841E027D6A0000BF8A /* JSONModel.framework in Frameworks */,
+				768D71881E027D6A0000BF8A /* CitrusGraphics.framework in Frameworks */,
+				768D71801E027D6A0000BF8A /* Kingfisher.framework in Frameworks */,
+				768D718A1E027D6A0000BF8A /* CitrusPay.framework in Frameworks */,
+				768D718C1E027D6A0000BF8A /* LazyPay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768D711D1E027C630000BF8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		763477BD1E3B8080007ED364 /* SVSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				763477BE1E3B8080007ED364 /* SVSegmentedControl.h */,
+				763477BF1E3B8080007ED364 /* SVSegmentedControl.m */,
+				763477C01E3B8080007ED364 /* SVSegmentedThumb.h */,
+				763477C11E3B8080007ED364 /* SVSegmentedThumb.m */,
+			);
+			name = SVSegmentedControl;
+			path = "../../../Common-Data/SVSegmentedControl";
+			sourceTree = "<group>";
+		};
+		768D70FE1E027C630000BF8A = {
+			isa = PBXGroup;
+			children = (
+				768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */,
+				768D71531E027D410000BF8A /* JSONModel.xcodeproj */,
+				768D714E1E027D350000BF8A /* graphics-sdk */,
+				768D71491E027D1B0000BF8A /* core-sdk */,
+				768D71441E027D0F0000BF8A /* lazypay-sdk */,
+				768D71091E027C630000BF8A /* LazyPayExample */,
+				768D71231E027C630000BF8A /* LazyPayExampleTests */,
+				768D71081E027C630000BF8A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		768D71081E027C630000BF8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				768D71071E027C630000BF8A /* LazyPayExample.app */,
+				768D71201E027C630000BF8A /* LazyPayExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		768D71091E027C630000BF8A /* LazyPayExample */ = {
+			isa = PBXGroup;
+			children = (
+				768D712F1E027CE10000BF8A /* test-ui-example */,
+				768D710D1E027C630000BF8A /* AppDelegate.h */,
+				768D710E1E027C630000BF8A /* AppDelegate.m */,
+				768D711B1E027C630000BF8A /* Info.plist */,
+				768D710A1E027C630000BF8A /* Supporting Files */,
+			);
+			path = LazyPayExample;
+			sourceTree = "<group>";
+		};
+		768D710A1E027C630000BF8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				768D710B1E027C630000BF8A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		768D71231E027C630000BF8A /* LazyPayExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				768D71241E027C630000BF8A /* LazyPayExampleTests.m */,
+				768D71261E027C630000BF8A /* Info.plist */,
+			);
+			path = LazyPayExampleTests;
+			sourceTree = "<group>";
+		};
+		768D712F1E027CE10000BF8A /* test-ui-example */ = {
+			isa = PBXGroup;
+			children = (
+				763477BD1E3B8080007ED364 /* SVSegmentedControl */,
+				763477BB1E3B8069007ED364 /* Common.xcassets */,
+				763477B91E3B8058007ED364 /* MerchantConstants.h */,
+				763477BA1E3B8058007ED364 /* TestParams.h */,
+				763477B71E3B801E007ED364 /* Main.storyboard */,
+				768D71351E027CE10000BF8A /* HomeViewController.h */,
+				768D71361E027CE10000BF8A /* HomeViewController.m */,
+			);
+			name = "test-ui-example";
+			path = "../../test-ui-example";
+			sourceTree = "<group>";
+		};
+		768D71441E027D0F0000BF8A /* lazypay-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				768D71451E027D0F0000BF8A /* LazyPay.framework */,
+			);
+			name = "lazypay-sdk";
+			path = "../../../Framework/lazypay-sdk";
+			sourceTree = "<group>";
+		};
+		768D71491E027D1B0000BF8A /* core-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				768D714A1E027D1B0000BF8A /* CitrusPay.framework */,
+			);
+			name = "core-sdk";
+			path = "../../../Framework/core-sdk";
+			sourceTree = "<group>";
+		};
+		768D714E1E027D350000BF8A /* graphics-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				768D714F1E027D350000BF8A /* CitrusGraphics.framework */,
+			);
+			name = "graphics-sdk";
+			path = "../../../Framework/graphics-sdk";
+			sourceTree = "<group>";
+		};
+		768D71541E027D410000BF8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				768D71581E027D420000BF8A /* JSONModel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		768D715A1E027D4A0000BF8A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				768D71691E027D4A0000BF8A /* Kingfisher.framework */,
+				768D716B1E027D4A0000BF8A /* Kingfisher.framework */,
+				768D716D1E027D4A0000BF8A /* Kingfisher.framework */,
+				768D716F1E027D4A0000BF8A /* Kingfisher.framework */,
+				768D71711E027D4A0000BF8A /* Kingfisher-Demo.app */,
+				768D71731E027D4A0000BF8A /* Kingfisher-tvOS-Demo.app */,
+				768D71751E027D4A0000BF8A /* Kingfisher-macOS-Demo.app */,
+				768D71771E027D4A0000BF8A /* Kingfisher-watchOS-Demo.app */,
+				768D71791E027D4A0000BF8A /* Kingfisher-watchOS-Demo Extension.appex */,
+				768D717B1E027D4A0000BF8A /* KingfisherTests.xctest */,
+				768D717D1E027D4A0000BF8A /* KingfisherTests-tvOS.xctest */,
+				768D717F1E027D4A0000BF8A /* KingfisherTests-macOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		768D71061E027C630000BF8A /* LazyPayExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768D71291E027C630000BF8A /* Build configuration list for PBXNativeTarget "LazyPayExample" */;
+			buildPhases = (
+				768D71031E027C630000BF8A /* Sources */,
+				768D71041E027C630000BF8A /* Frameworks */,
+				768D71051E027C630000BF8A /* Resources */,
+				768D718E1E027D6A0000BF8A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				768D71831E027D6A0000BF8A /* PBXTargetDependency */,
+				768D71871E027D6A0000BF8A /* PBXTargetDependency */,
+			);
+			name = LazyPayExample;
+			productName = LazyPayExample;
+			productReference = 768D71071E027C630000BF8A /* LazyPayExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		768D711F1E027C630000BF8A /* LazyPayExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768D712C1E027C630000BF8A /* Build configuration list for PBXNativeTarget "LazyPayExampleTests" */;
+			buildPhases = (
+				768D711C1E027C630000BF8A /* Sources */,
+				768D711D1E027C630000BF8A /* Frameworks */,
+				768D711E1E027C630000BF8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				768D71221E027C630000BF8A /* PBXTargetDependency */,
+			);
+			name = LazyPayExampleTests;
+			productName = LazyPayExampleTests;
+			productReference = 768D71201E027C630000BF8A /* LazyPayExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		768D70FF1E027C630000BF8A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = CitrusPay;
+				TargetAttributes = {
+					768D71061E027C630000BF8A = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
+					768D711F1E027C630000BF8A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = BF75J23QJ2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 768D71061E027C630000BF8A;
+					};
+				};
+			};
+			buildConfigurationList = 768D71021E027C630000BF8A /* Build configuration list for PBXProject "LazyPayExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 768D70FE1E027C630000BF8A;
+			productRefGroup = 768D71081E027C630000BF8A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 768D71541E027D410000BF8A /* Products */;
+					ProjectRef = 768D71531E027D410000BF8A /* JSONModel.xcodeproj */;
+				},
+				{
+					ProductGroup = 768D715A1E027D4A0000BF8A /* Products */;
+					ProjectRef = 768D71591E027D4A0000BF8A /* Kingfisher.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				768D71061E027C630000BF8A /* LazyPayExample */,
+				768D711F1E027C630000BF8A /* LazyPayExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		768D71581E027D420000BF8A /* JSONModel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSONModel.framework;
+			remoteRef = 768D71571E027D420000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71691E027D4A0000BF8A /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 768D71681E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D716B1E027D4A0000BF8A /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 768D716A1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D716D1E027D4A0000BF8A /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 768D716C1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D716F1E027D4A0000BF8A /* Kingfisher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kingfisher.framework;
+			remoteRef = 768D716E1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71711E027D4A0000BF8A /* Kingfisher-Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-Demo.app";
+			remoteRef = 768D71701E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71731E027D4A0000BF8A /* Kingfisher-tvOS-Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-tvOS-Demo.app";
+			remoteRef = 768D71721E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71751E027D4A0000BF8A /* Kingfisher-macOS-Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-macOS-Demo.app";
+			remoteRef = 768D71741E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71771E027D4A0000BF8A /* Kingfisher-watchOS-Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Kingfisher-watchOS-Demo.app";
+			remoteRef = 768D71761E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D71791E027D4A0000BF8A /* Kingfisher-watchOS-Demo Extension.appex */ = {
+			isa = PBXReferenceProxy;
+			fileType = "wrapper.app-extension";
+			path = "Kingfisher-watchOS-Demo Extension.appex";
+			remoteRef = 768D71781E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D717B1E027D4A0000BF8A /* KingfisherTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KingfisherTests.xctest;
+			remoteRef = 768D717A1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D717D1E027D4A0000BF8A /* KingfisherTests-tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-tvOS.xctest";
+			remoteRef = 768D717C1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		768D717F1E027D4A0000BF8A /* KingfisherTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "KingfisherTests-macOS.xctest";
+			remoteRef = 768D717E1E027D4A0000BF8A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		768D71051E027C630000BF8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763477BC1E3B8069007ED364 /* Common.xcassets in Resources */,
+				763477B81E3B801E007ED364 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768D711E1E027C630000BF8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		768D71031E027C630000BF8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				763477C31E3B8080007ED364 /* SVSegmentedThumb.m in Sources */,
+				768D710F1E027C630000BF8A /* AppDelegate.m in Sources */,
+				763477C21E3B8080007ED364 /* SVSegmentedControl.m in Sources */,
+				768D710C1E027C630000BF8A /* main.m in Sources */,
+				768D71411E027CE10000BF8A /* HomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768D711C1E027C630000BF8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768D71251E027C630000BF8A /* LazyPayExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		768D71221E027C630000BF8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 768D71061E027C630000BF8A /* LazyPayExample */;
+			targetProxy = 768D71211E027C630000BF8A /* PBXContainerItemProxy */;
+		};
+		768D71831E027D6A0000BF8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Kingfisher-iOS";
+			targetProxy = 768D71821E027D6A0000BF8A /* PBXContainerItemProxy */;
+		};
+		768D71871E027D6A0000BF8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONModel;
+			targetProxy = 768D71861E027D6A0000BF8A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		768D71271E027C630000BF8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		768D71281E027C630000BF8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		768D712A1E027C630000BF8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../Framework/lazypay-sdk/**",
+					"$(PROJECT_DIR)/../../../Framework/core-sdk/**",
+					"$(PROJECT_DIR)/../../../Framework/graphics-sdk/**",
+				);
+				INFOPLIST_FILE = LazyPayExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.citruspay.lazypay.LazyPayExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		768D712B1E027C630000BF8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../../../Framework/lazypay-sdk/**",
+					"$(PROJECT_DIR)/../../../Framework/core-sdk/**",
+					"$(PROJECT_DIR)/../../../Framework/graphics-sdk/**",
+				);
+				INFOPLIST_FILE = LazyPayExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.citruspay.lazypay.LazyPayExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		768D712D1E027C630000BF8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BF75J23QJ2;
+				INFOPLIST_FILE = LazyPayExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.citruspay.lazypay.LazyPayExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LazyPayExample.app/LazyPayExample";
+			};
+			name = Debug;
+		};
+		768D712E1E027C630000BF8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = BF75J23QJ2;
+				INFOPLIST_FILE = LazyPayExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.citruspay.lazypay.LazyPayExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LazyPayExample.app/LazyPayExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		768D71021E027C630000BF8A /* Build configuration list for PBXProject "LazyPayExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768D71271E027C630000BF8A /* Debug */,
+				768D71281E027C630000BF8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768D71291E027C630000BF8A /* Build configuration list for PBXNativeTarget "LazyPayExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768D712A1E027C630000BF8A /* Debug */,
+				768D712B1E027C630000BF8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768D712C1E027C630000BF8A /* Build configuration list for PBXNativeTarget "LazyPayExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768D712D1E027C630000BF8A /* Debug */,
+				768D712E1E027C630000BF8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 768D70FF1E027C630000BF8A /* Project object */;
+}

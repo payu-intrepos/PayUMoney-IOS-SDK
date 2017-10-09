@@ -1,0 +1,6 @@
+[submodule "Dependency/JSONModel"]
+	path = Dependency/JSONModel
+	url = https://github.com/icanzilb/JSONModel.git
+[submodule "Dependency/Kingfisher"]
+	path = Dependency/Kingfisher
+	url = https://github.com/onevcat/Kingfisher.git

@@ -1,0 +1,28 @@
+PODS:
+  - CitrusGraphics (1.1.1):
+    - Kingfisher
+  - CitrusPay (4.1.2):
+    - CitrusGraphics
+    - JSONModel
+  - JSONModel (1.7.0)
+  - Kingfisher (3.3.4)
+  - LazyPay (1.0.1):
+    - CitrusPay
+
+DEPENDENCIES:
+  - LazyPay (from `../../../../`)
+
+EXTERNAL SOURCES:
+  LazyPay:
+    :path: ../../../../
+
+SPEC CHECKSUMS:
+  CitrusGraphics: df3096fc3a0475d378e0adf22ac8c21f3cf2b69b
+  CitrusPay: 4ee3ae2e5ef37aeafa6c17bd3f781c02faa2d3f2
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  Kingfisher: 35f289f015d26e81ea6c85048718c6205f3933c6
+  LazyPay: 92e822b76fd8ab12a617b8c742d63a6c1d40433e
+
+PODFILE CHECKSUM: fcc231299fd690eab5556de7420f26a38761dff1
+
+COCOAPODS: 1.1.1

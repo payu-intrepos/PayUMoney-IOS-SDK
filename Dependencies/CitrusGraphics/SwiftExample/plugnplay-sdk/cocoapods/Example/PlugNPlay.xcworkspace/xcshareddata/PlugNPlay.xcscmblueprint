@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "82A97729EC55B5EC9951B8B1634CBA9A8575F264",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "69477F3283BCA765B2921E78BA499AB7EB018F60" : 9223372036854775807,
+    "82A97729EC55B5EC9951B8B1634CBA9A8575F264" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "44854528-D570-47C5-931F-B38087304873",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "69477F3283BCA765B2921E78BA499AB7EB018F60" : "..",
+    "82A97729EC55B5EC9951B8B1634CBA9A8575F264" : "CitrusPay-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PlugNPlay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftExample\/plugnplay-sdk\/cocoapods\/Example\/PlugNPlay.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/citruspay\/open-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "69477F3283BCA765B2921E78BA499AB7EB018F60"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/citruspay\/citruspay-ios-sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "82A97729EC55B5EC9951B8B1634CBA9A8575F264"
+    }
+  ]
+}

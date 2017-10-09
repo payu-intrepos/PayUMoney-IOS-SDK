@@ -1,0 +1,6 @@
+framework module LazyPay {
+  umbrella header "LazyPay.h"
+
+  export *
+  module * { export * }
+}

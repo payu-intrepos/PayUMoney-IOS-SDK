@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PlugNPlay_Example' do
+  pod 'PlugNPlay', :path => '../../../../'
+
+  target 'PlugNPlay_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

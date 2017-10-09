@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LazyPay_Example' do
+  pod 'LazyPay', :path => '../../../../'
+
+  target 'LazyPay_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
