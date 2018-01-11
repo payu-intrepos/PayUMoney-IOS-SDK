@@ -11,6 +11,7 @@
 		DD26C6181F443C52001C8B30 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DD26C6171F443C52001C8B30 /* iOSDefaultActivityIndicator.m */; };
 		DD2B48301F09E6B9003EEC4F /* PaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B482F1F09E6B9003EEC4F /* PaymentVC.m */; };
 		DD2B48331F0A1C3C003EEC4F /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B48321F0A1C3C003EEC4F /* Constants.m */; };
+		DD41AD8F2007622A00A25D1F /* VerifyOTPVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD41AD8D2007622900A25D1F /* VerifyOTPVC.m */; };
 		DD4BFF9C1F096258007D677B /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4BFF9B1F096258007D677B /* Utils.m */; };
 		DD5F17961F039AAF00AFD19E /* HomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F17951F039AAF00AFD19E /* HomeTVC.m */; };
 		DD5F179A1F039B0100AFD19E /* HomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5F17991F039B0100AFD19E /* HomeTableCell.m */; };
@@ -46,6 +47,8 @@
 		DD2B482F1F09E6B9003EEC4F /* PaymentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentVC.m; sourceTree = "<group>"; };
 		DD2B48311F0A1C3C003EEC4F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		DD2B48321F0A1C3C003EEC4F /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		DD41AD8D2007622900A25D1F /* VerifyOTPVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyOTPVC.m; sourceTree = "<group>"; };
+		DD41AD8E2007622900A25D1F /* VerifyOTPVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyOTPVC.h; sourceTree = "<group>"; };
 		DD4BFF9A1F096258007D677B /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		DD4BFF9B1F096258007D677B /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		DD5F17941F039AAF00AFD19E /* HomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTVC.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				DD2B482F1F09E6B9003EEC4F /* PaymentVC.m */,
 				DD2B48311F0A1C3C003EEC4F /* Constants.h */,
 				DD2B48321F0A1C3C003EEC4F /* Constants.m */,
+				DD41AD8E2007622900A25D1F /* VerifyOTPVC.h */,
+				DD41AD8D2007622900A25D1F /* VerifyOTPVC.m */,
 			);
 			path = PayUMoneyExample;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				DD5F179A1F039B0100AFD19E /* HomeTableCell.m in Sources */,
 				DD03C87E1F04C0F7002DB245 /* APIListVC.m in Sources */,
 				DD2B48331F0A1C3C003EEC4F /* Constants.m in Sources */,
+				DD41AD8F2007622A00A25D1F /* VerifyOTPVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

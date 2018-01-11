@@ -35,6 +35,8 @@
 #define USER_INFO_URL                               @"auth/app/user"
 #define USER_LOAD_WALLET_URL                        @"payment/app/wallet/loadWalletPayment"
 #define USER_FETCH_PAYMENT_USER_DATA_URL            @"payment/app/v1/fetchPaymentUserData"
+#define FETCH_USER_DATA_URL                         @"payment/op/v1/fetchUserDataFromEmailMobile"
+
 
 //Cards
 #define GET_USER_SAVE_CARDS                         @"payment/op/hasSavedCard" //@"payment/op/getSaveCardCount" // params email=p.bharat@payu.in&phone=7200225586
@@ -183,6 +185,11 @@
 #define kSDK_TXN_FAILURE            @"failure"
 #define kSDK_TXN_REJECTED           @"rejected"
 
+#define KEY_NITRO_ENABLED           @"nitroEnabled"
+#define KEY_RESULT                  @"result"
+
+#define KEY_USER_ENABLED            @"userEnabled"
+#define KEY_USER_ID                 @"userId"
 /*!
  ************************************************** General ************************************
  */
@@ -194,7 +201,7 @@
 #define DEBIT                       @"Debit Card"
 #define SAVED                       @"Saved Cards"
 #define NET_BANKING                 @"Net Banking"
-#define USER_AGENT_FOR_SELLER_APP   @"PayUMoneyiOSAPP"
+#define USER_AGENT_FOR_SDK          @"PayUMoneyiOSSDK"
 #define ERROR_WHEN_KEY_NULL         @"Unexpected error occured"
 
 /*!
@@ -321,7 +328,8 @@ typedef NS_ENUM(NSInteger,SDK_REQUEST_TYPE ) {
     SDK_FETCH_PAYMENT_PROFILE_DATA,
     SDK_EMI_DETAILS,
     SDK_ANALYTICS_FETCH_API_TOKEN,
-    SDK_ANALYTICS_SEND
+    SDK_ANALYTICS_SEND,
+    SDK_FETCH_USER_DATA
     
 };
 

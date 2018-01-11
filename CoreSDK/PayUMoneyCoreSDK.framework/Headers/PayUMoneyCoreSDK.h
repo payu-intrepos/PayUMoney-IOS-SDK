@@ -15,6 +15,8 @@
 #import "PUMUIConfig.h"
 #import "PUMUtils.h"
 #import "PUMHelperClass.h"
+#import "PUMTextField.h"
+#import "PUMLogEvents.h"
 
 
 #define SDK_Default_COLOR UIColorFromRGB([PUMUIConfig intFromHexString:defaultLinkTextColor])
@@ -76,6 +78,12 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
      withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
 - (void)getNetBankingStatusAPIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+- (void)fetchUserDataAPIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+- (void)sendPaymentOTPforMobileOrEmail:(NSString *) mobileOrEmail APIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+- (void)verifyOTPOrPassword:(NSString *) otpOrPassword forMobileOrEmail:(NSString *) mobileOrEmail APIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
 //
 

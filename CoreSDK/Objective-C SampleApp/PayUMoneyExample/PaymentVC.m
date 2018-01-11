@@ -40,7 +40,7 @@
         self.vwCCDC.hidden = NO;
     }
     else if (self.paymentMode == PUMPaymentModeNetBanking){
-        self.vwNB.hidden = NO;
+        self.vwStoredCard.hidden = NO;
     }
     else if (self.paymentMode == PUMPaymentModeStoredCard){
         self.vwStoredCard.hidden = NO;
@@ -52,7 +52,7 @@
     self.switchUseWallet.hidden = NO;
     self.lblUseWallet.hidden = NO;
     selectedIndex = -1;
-    if (self.paymentMode != PUMPaymentModeStoredCard){
+    if (!(self.paymentMode == PUMPaymentModeStoredCard || self.paymentMode == PUMPaymentModeNetBanking)){
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
         [self.view addGestureRecognizer:tapGesture];
     }
@@ -107,8 +107,8 @@
             }
         }];
     }
-    else if (self.paymentMode == PUMPaymentModeNetBanking){
-        paymentParam.objNetBanking.bankCode = self.tfBankCode.text;
+    else if (self.paymentMode == PUMPaymentModeNetBanking && selectedIndex>=0){
+        paymentParam.objNetBanking.bankCode = [[[self.arrNetBank objectAtIndex:selectedIndex] allKeys] firstObject];
         paymentParam.paymentMode = PUMPaymentModeNetBanking;
         [self showWebView:paymentParam];
     }
@@ -151,19 +151,35 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrStoredCard.count;
+    if (self.paymentMode == PUMPaymentModeNetBanking){
+        return self.arrNetBank.count;
+    }
+    else{
+        return self.arrStoredCard.count;
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    NSDictionary *eachStoredCard = [self.arrStoredCard objectAtIndex:indexPath.row];
-    cell.textLabel.text = [eachStoredCard objectForKey:@"ccnum"];
-    cell.detailTextLabel.text = [eachStoredCard objectForKey:@"cardName"];
+
+    if (self.paymentMode == PUMPaymentModeNetBanking){
+        NSDictionary *eachNetBank = [self.arrNetBank objectAtIndex:indexPath.row];
+        cell.textLabel.text = [[[eachNetBank allValues] firstObject] objectForKey:@"title"];
+        cell.detailTextLabel.text = [[eachNetBank allKeys] firstObject];
+    }
+    else{
+        NSDictionary *eachStoredCard = [self.arrStoredCard objectAtIndex:indexPath.row];
+        cell.textLabel.text = [eachStoredCard objectForKey:@"ccnum"];
+        cell.detailTextLabel.text = [eachStoredCard objectForKey:@"cardName"];
+    }
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (self.paymentMode == PUMPaymentModeNetBanking){
+//        self.tfBankCode.text = [[self tableView:tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text copy];
+//    }
     selectedIndex = (int)indexPath.row;
 }
 

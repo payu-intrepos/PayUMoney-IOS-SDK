@@ -51,7 +51,7 @@
     tapScroll.cancelsTouchesInView = YES;
     [_scrollView addGestureRecognizer:tapScroll];
     
-    self.version.text = [NSString stringWithFormat:@"© PlugNPlay Demo v%@", PLUGNPLAY_VERSION];
+//    self.version.text = [NSString stringWithFormat:@"© PlugNPlay Demo v%@", PLUGNPLAY_VERSION];
 
     _scrollView.delegate = self;
     

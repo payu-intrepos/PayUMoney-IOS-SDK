@@ -9,12 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "PUMConstants.h"
 
-typedef NS_ENUM(NSInteger, PUMEnvironment) {
-    PUMEnvironmentProduction = 0,
-    PUMEnvironmentTest = 1
-};
-
-
 @interface PUMTxnParam : NSObject
 
 @property (nonatomic,strong) NSString *key;

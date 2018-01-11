@@ -6,23 +6,10 @@
 //  Copyright © 2017 Citrus Payment Solutions, Pvt. Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
 #import <PayUMoneyCoreSDK/PayUMoneyCoreSDK.h>
-
-#import "Version.h"
-//#import "PlugAndPlayPayment.h"
-#import "PnPToolbar.h"
 #import "PnPUtility.h"
 #import "UIUtility.h"
-#import "LeftRightStrip.h"
-//#import "PnPSetupAutoLoadView.h"
-#import "PnPWalletManagementConstants.h"
-#import "PnPCvvInputViewController.h"
-#import "PnPWalletPayViewController.h"
-#import "PnPAddCardViewController.h"
-//#import "PnPCardManagementTableViewCell.h"
 
 typedef void (^WalletValidationErrorCompletionHandler)(NSError *error);
 typedef void (^PnPPaymentCompletionBlock)(NSDictionary *paymentResponse, NSError *error, id extraParam);

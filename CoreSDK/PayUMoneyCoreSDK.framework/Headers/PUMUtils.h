@@ -97,19 +97,6 @@ typedef enum {
 
 
 /*!
- * This method is called for Email Validation.
- */
-+ (BOOL)isValidEmailID:(NSString*)email;
-
-
-/*!
- * This method is called for Mobile Number Validation.
- */
-
-+(BOOL)isValidMobileNumber:(NSString *)mobileNumber;
-
-
-/*!
  * This method is called to Encrypt Card Numbers.(SHA-256 Encryption with Little Indian Encoding)
  */
 
@@ -145,6 +132,16 @@ typedef enum {
 
 +(NSString *)removeWhiteSpacesFromString:(NSString *)string;
 
-+(NSError *)validateAmount:(NSString *) amount;
++(NSString *)convertBoolToString:(BOOL) val;
+
++(void)setPnPVersion:(NSString *) version;
+
++(NSString *)getPnPVersion;
+
++(NSDecimalNumber *)roundUpNumberTo2DecimalPlaces:(NSDecimalNumber *) number;
+
++(NSString *)getTotalAmountFromPaymentResponse:(NSDictionary *) response;
+
++(NSString *)getPaymentIDFromAddPaymentResponse:(NSDictionary *) response;
 
 @end

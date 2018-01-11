@@ -1,5 +1,5 @@
 //
-//  PMSDKAnalyticsUtil.h
+//  PUMAnalyticsUtil.h
 //  PlugNPlayExample
 //
 //  Created by Umang Arya on 4/17/17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PMSDKAnalyticsUtil : NSObject
+@interface PUMAnalyticsUtil : NSObject
 
 +(NSString *)getDeviceID;
 
@@ -67,6 +67,10 @@
 +(NSString *)getEnvironment;
 
 +(NSString *)getDeviceName;
+
++(NSString *)getPnPVersion;
+
++(NSString *)deviceSupportFingerprint;
 
 @end
 

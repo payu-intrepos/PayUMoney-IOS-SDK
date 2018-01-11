@@ -22,4 +22,24 @@
 
 + (BOOL)isCvvValid:(NSString *)cvv forCardType:(NSString *)cardType;
 
++ (BOOL)isValidPhoneNumber:(NSString *)phoneNumber;
+
++ (BOOL)isValidAmount:(NSString *)amount;
+
++ (BOOL)isValidEmail:(NSString *)email;
+
++ (BOOL)validateRegex:(NSString *) regex onString:(NSString *) str;
+
++ (BOOL)isNitroFlowEnabledForMerchant;
+
++ (BOOL)isUserAccountActive;
+
++ (NSString *)getUserNameFromFetchUserDataAPI;
+
++ (BOOL)isUserMobileNumberRegistered;
+
++ (NSString *)getUserMobileNumberFromFetchUserDataAPI;
+
++ (NSString *)getUserEmailFromFetchUserDataAPI;
+
 @end

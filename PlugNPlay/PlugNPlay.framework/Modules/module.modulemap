@@ -4,8 +4,3 @@ framework module PlugNPlay {
   export *
   module * { export * }
 }
-
-module PlugNPlay.Swift {
-    header "PlugNPlay-Swift.h"
-    requires objc
-}

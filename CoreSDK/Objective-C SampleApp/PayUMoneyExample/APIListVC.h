@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSDictionary *addPaymentAPIResponse;
 @property (nonatomic, strong) NSDictionary *fetchPaymentUserDataAPIResponse;
+@property (nonatomic, strong) NSDictionary *fetchUserDataAPIResponse;
 
 @end

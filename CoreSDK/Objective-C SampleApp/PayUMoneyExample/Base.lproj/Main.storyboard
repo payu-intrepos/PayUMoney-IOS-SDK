@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fNm-qJ-8md">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fNm-qJ-8md">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +23,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rny-xM-4Nm" id="78p-7y-w30">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcb-bM-J2v">
-                                            <rect key="frame" x="18" y="12" width="187" height="21"/>
+                                            <rect key="frame" x="26" y="12" width="179" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
         <!--ListVC-->
         <scene sceneID="qEd-i6-zYR">
             <objects>
-                <viewController storyboardIdentifier="APIListVC" id="TQ9-Se-SAY" customClass="APIListVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="APIListVC" automaticallyAdjustsScrollViewInsets="NO" id="TQ9-Se-SAY" customClass="APIListVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B2l-wN-ZVx"/>
                         <viewControllerLayoutGuide type="bottom" id="BWX-7W-6MY"/>
@@ -101,7 +101,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iSc-Dt-lpI" id="dCU-9R-5S7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -333,13 +333,100 @@
             </objects>
             <point key="canvasLocation" x="3784.8000000000002" y="-161.46926536731635"/>
         </scene>
+        <!--VerifyOTPVC-->
+        <scene sceneID="QyP-VU-zBE">
+            <objects>
+                <viewController storyboardIdentifier="VerifyOTPVC" automaticallyAdjustsScrollViewInsets="NO" id="abM-yc-kNO" customClass="VerifyOTPVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jJr-Cr-dXF"/>
+                        <viewControllerLayoutGuide type="bottom" id="FIW-Sw-tth"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PeL-el-JOP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Email/Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="so4-f0-JKG">
+                                <rect key="frame" x="20" y="40" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkO-lj-3Gd">
+                                <rect key="frame" x="20" y="70" width="238" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkT-l4-PtO">
+                                <rect key="frame" x="278" y="69" width="77" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.12475720793008804" blue="0.99933654069900513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Send OTP">
+                                    <color key="titleColor" red="0.99603289365768433" green="0.99618560075759888" blue="0.99165958166122437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTappedSendOTP:" destination="abM-yc-kNO" eventType="touchUpInside" id="ZmY-g2-Jwa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Password/OTP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXf-6u-MPZ">
+                                <rect key="frame" x="20" y="126" width="157" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHa-Oh-l0r">
+                                <rect key="frame" x="20" y="156" width="269" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6q-kb-mBd">
+                                <rect key="frame" x="309" y="155" width="46" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.12475720793008804" blue="0.99933654069900513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Verify">
+                                    <color key="titleColor" red="0.99603289365768433" green="0.99618560075759888" blue="0.99165958166122437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTappedVerifyOTP:" destination="abM-yc-kNO" eventType="touchUpInside" id="Am4-wU-De8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qkO-lj-3Gd" firstAttribute="leading" secondItem="PeL-el-JOP" secondAttribute="leading" constant="20" id="1kj-LK-1bk"/>
+                            <constraint firstItem="so4-f0-JKG" firstAttribute="leading" secondItem="PeL-el-JOP" secondAttribute="leading" constant="20" id="4zd-6q-zng"/>
+                            <constraint firstItem="LXf-6u-MPZ" firstAttribute="top" secondItem="qkO-lj-3Gd" secondAttribute="bottom" constant="26" id="7OC-Ow-BBj"/>
+                            <constraint firstAttribute="trailing" secondItem="y6q-kb-mBd" secondAttribute="trailing" constant="20" id="CXO-cT-eto"/>
+                            <constraint firstItem="rkT-l4-PtO" firstAttribute="leading" secondItem="qkO-lj-3Gd" secondAttribute="trailing" constant="20" id="GaN-y1-6YK"/>
+                            <constraint firstItem="qkO-lj-3Gd" firstAttribute="top" secondItem="so4-f0-JKG" secondAttribute="bottom" constant="9" id="HaD-PG-t0P"/>
+                            <constraint firstItem="wHa-Oh-l0r" firstAttribute="top" secondItem="LXf-6u-MPZ" secondAttribute="bottom" constant="9" id="IjH-Y4-2Qc"/>
+                            <constraint firstItem="wHa-Oh-l0r" firstAttribute="leading" secondItem="PeL-el-JOP" secondAttribute="leading" constant="20" id="K0q-Lv-mKz"/>
+                            <constraint firstItem="y6q-kb-mBd" firstAttribute="centerY" secondItem="wHa-Oh-l0r" secondAttribute="centerY" id="StG-r7-2nQ"/>
+                            <constraint firstItem="LXf-6u-MPZ" firstAttribute="leading" secondItem="PeL-el-JOP" secondAttribute="leading" constant="20" id="Xw0-NZ-47E"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LXf-6u-MPZ" secondAttribute="trailing" constant="20" symbolic="YES" id="ZTZ-mw-kZE"/>
+                            <constraint firstItem="y6q-kb-mBd" firstAttribute="leading" secondItem="wHa-Oh-l0r" secondAttribute="trailing" constant="20" id="dng-cL-CFS"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="so4-f0-JKG" secondAttribute="trailing" constant="20" symbolic="YES" id="hfz-db-34H"/>
+                            <constraint firstItem="rkT-l4-PtO" firstAttribute="centerY" secondItem="qkO-lj-3Gd" secondAttribute="centerY" id="jJb-Wa-Fwg"/>
+                            <constraint firstAttribute="trailing" secondItem="rkT-l4-PtO" secondAttribute="trailing" constant="20" id="oBI-Rk-aau"/>
+                            <constraint firstItem="so4-f0-JKG" firstAttribute="top" secondItem="jJr-Cr-dXF" secondAttribute="bottom" constant="20" id="p3N-gj-vf3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtFldOTP" destination="wHa-Oh-l0r" id="JDM-Z3-yt2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdb-X5-4Xc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3784.8000000000002" y="546.47676161919048"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3S0-pW-6IA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fNm-qJ-8md" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7uJ-X7-B7P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -31,7 +31,7 @@
     self.arrMerchantKey = [NSArray arrayWithObjects:@"mdyCKV",@"Aqryi8",@"", nil];
     self.arrMerchantID = [NSArray arrayWithObjects:@"4914106",@"397202",@"", nil];
     self.arrMerchantSalt = [NSArray arrayWithObjects:@"Je7q3652",@"ZRC9Xgru",@"", nil];
-    self.arrEnvironment = [NSArray arrayWithObjects:@"0",@"11",@"", nil];
+    self.arrEnvironment = [NSArray arrayWithObjects:@"0",@"4",@"", nil];
     
     id env = [[NSUserDefaults standardUserDefaults] valueForKey:@"PUMENVIRONMENT"];
     if (env) {
@@ -59,13 +59,8 @@
     // Do any additional setup after loading the view.
 }
 
-
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    HomeTableCell *cell = (HomeTableCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    cell.tfValue.text = [Utils getTxnID];
-    [self.arrPaymentParamValue replaceObjectAtIndex:2 withObject:[self.arrPaymentParamValue objectAtIndex:2]];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 - (void)dismissKeyboard{
@@ -249,8 +244,22 @@
                     }];
                 }
                 else{
-                    [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-                    [self.navigationController pushViewController:APIVC animated:YES];
+                    if ([PUMHelperClass isNitroFlowEnabledForMerchant]) {
+                        [[PayUMoneyCoreSDK sharedInstance] fetchUserDataAPIWithCompletionBlock:^(NSDictionary *response, NSError *error, id extraParam) {
+                            [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                            if (error) {
+                                [Utils showMsgWithTitle:@"Error" message:error.localizedDescription];
+                            }
+                            else{
+                                APIVC.fetchUserDataAPIResponse = response;
+                                [self.navigationController pushViewController:APIVC animated:YES];
+                            }
+                        }];
+                    }
+                    else{
+                        [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                        [self.navigationController pushViewController:APIVC animated:YES];
+                    }
                 }
             }
         }];

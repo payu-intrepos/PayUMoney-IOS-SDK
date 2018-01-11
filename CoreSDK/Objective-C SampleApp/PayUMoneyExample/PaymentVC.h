@@ -13,5 +13,6 @@
 
 @property (nonatomic,assign) PUMPaymentMode paymentMode;
 @property (nonatomic, strong) NSArray *arrStoredCard;
+@property (nonatomic, strong) NSArray *arrNetBank;
 
 @end

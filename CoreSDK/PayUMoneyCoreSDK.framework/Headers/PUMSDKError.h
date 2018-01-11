@@ -61,10 +61,12 @@ typedef NS_ENUM(NSInteger, PUMSDKErrorCode)
     PUMErrorTxnLessThanMinWalletAllowed,
     PUMErrorInsufficientFund,
     PUMErrorWalletAmountMoreThanPayAmount,
-    PUMErrorCCUnavaliable,
-    PUMErrorDCUnavaliable,
-    PUMErrorNBUnavaliable,
-    PUMErrorWalletUnavaliable
+    PUMErrorCCUnavailable,
+    PUMErrorDCUnavailable,
+    PUMErrorNBUnavailable,
+    PUMErrorWalletUnavailable,
+    PUMErrorPaymentIDUnavailable,
+    PUMErrorMobileOrEmailInvalid
 };
 
 +(NSError *)toNSError:(int)errorCode

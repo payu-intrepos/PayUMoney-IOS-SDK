@@ -17,16 +17,6 @@
 
 
 /*!
- * This method checks if email is a valid one.
- */
-+ (BOOL)validateEmailWithString:(NSString*)email;
-
-/*!
- * Checks if a mobile number is valid
- */
-+ (BOOL)isValidMobileNumber:(NSString *)mobileNumberString;
-
-/*!
  * Validate any URL
  */
 +(BOOL) validateURL: (NSString *) urlString;
