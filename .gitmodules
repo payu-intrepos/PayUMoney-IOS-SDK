@@ -1,0 +1,3 @@
+[submodule "Dependencies/CitrusGraphics"]
+	path = Dependencies/CitrusGraphics
+	url = https://github.com/citruspay/citruspay-ios-sdk.git
