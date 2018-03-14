@@ -13,16 +13,21 @@ static NSString *const KPUMANetBankValue = @"Bank";
 static NSString *const KPUMAWalletValue = @"PUMWallet";
 static NSString *const KPUMAWalletCardValue = @"PUMWallet|Cards";
 static NSString *const KPUMAWalletNetBankValue = @"PUMWallet|Bank";
+static NSString *const KPUMA3PWallet = @"3PWallet";
 
 static NSString *const kPUMAScreenTypeCheckout = @"Checkout";
 static NSString *const kPUMAScreenTypeAddCard = @"AddCard";
 static NSString *const kPUMAScreenTypeCVVEntry = @"CVVEntry";
 static NSString *const kPUMAScreenTypeMoreNetBank = @"MoreNetBank";
+static NSString *const kPUMAScreenTypeMore3PWallets = @"More3PWallets";
 static NSString *const kPUMAScreenTypeLogin = @"Login";
 static NSString *const kPUMAScreenTypeVerifyOTP = @"VerifyOTP";
 static NSString *const kPUMAScreenTypeWebView = @"WebView";
 static NSString *const kPUMAScreenTypeTxnSucceeded = @"TxnSucceeded";
 static NSString *const kPUMAScreenTypeTxnFailed = @"TxnFailed";
+
+static NSString *const kPUMAInvalidCardNumber = @"Invalid Card Number";
+static NSString *const kPUMAInvalidCVV = @"Invalid CVV";
 
 @interface PUMLogEvents : NSObject
 
@@ -34,6 +39,8 @@ static NSString *const kPUMAScreenTypeTxnFailed = @"TxnFailed";
 
 +(void)paymentFailedWithReason:(NSString *) reason andAmount:(NSString *) amount;
 
++(void)loginAttempted;
+
 +(void)loginInitiatedWithUserName:(NSString *) username;
 
 //+(void)loginIDEnteredWithIDValue:(NSString *)idValue;
@@ -43,6 +50,10 @@ static NSString *const kPUMAScreenTypeTxnFailed = @"TxnFailed";
 +(void)loginOTPTriggeredWithOTPTriggered:(BOOL)otpTriggered withUserName:(NSString *) username;
 
 +(void)loginOTPResentWithUserName:(NSString *)username;
+
++(void)loginSucceeded:(NSString *)authType withUserName:(NSString *) username;
+
++(void)loginFailed:(NSString *)authType withUserName:(NSString *) username;
 
 +(void)hidePaymentDetailsClickedWithPage:(NSString *)page;
 
@@ -78,6 +89,8 @@ static NSString *const kPUMAScreenTypeTxnFailed = @"TxnFailed";
 
 +(void)moreNBBanksClicked;
 
++(void)more3PWalletsClicked;
+
 //+(void)moreEMIBanksClicked;
 
 //+(void)twoFALoaded;
@@ -85,5 +98,11 @@ static NSString *const kPUMAScreenTypeTxnFailed = @"TxnFailed";
 +(void)paymentAbandonedWithReason:(NSString *)reason;
 
 +(void)nbUnreachableWithBankName:(NSString *)bankName;
+
++(void)thirdPartyWalletPayment:(NSString *)walletName;
+
++(void)invalidPaymentInfoWithPaymentMethod:(NSString *)paymentMethod withReason:(NSString *) reason;
+
++(void)txnCancelAttemptWithTxnStatus:(BOOL)status;
 
 @end

@@ -27,8 +27,17 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 //When Sent YES, it disables the Netbanking payment UI in the Plug and Play Payment UI
 +(void)setDisableNetbanking:(BOOL)isDisabled;
 
+//When Sent YES, it disables the Third party wallet payment UI in the Plug and Play Payment UI
++(void)setDisableThirdPartyWallet:(BOOL)isDisabled;
+
 //When Sent YES, it disables the payment Completion Screen, app gets back to merchant app immideatly after the payment
 +(void)setDisableCompletionScreen:(BOOL)isDisabled;
+
+//When Sent YES, it disables the exit alert on checkout page, app gets back to merchant app immideatly after the back press
++(void)setExitAlertOnCheckoutPageDisabled:(BOOL)isDisabled;
+
+//When Sent YES, it disables the exit alert on bank page, app gets back to merchant app immideatly after the back press
++(void)setExitAlertOnBankPageDisabled:(BOOL)isDisabled;
 
 //sets the top bar color of the Plug and  Play SDK UI
 +(void)setTopBarColor:(UIColor *)color;
@@ -59,7 +68,10 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 +(BOOL)disableWallet;
 +(BOOL)disableCards;
 +(BOOL)disableNetbanking;
++(BOOL)disableThirdPartyWallet;
 +(BOOL)disableCompletionScreen;
++(BOOL)isExitAlertOnCheckoutPageDisabled;
++(BOOL)isExitAlertOnBankPageDisabled;
 
 +(UIColor*)topBarColor;
 +(UIColor*)topTitleTextColor;

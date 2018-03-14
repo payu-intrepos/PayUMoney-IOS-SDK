@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PUMInternalConstants.h"
+#import "PUMPaymentParam.h"
 
 //// In a header file
 typedef enum {
@@ -112,6 +113,7 @@ typedef enum {
 +(double)calculateConvFeesForPaymentMode:(NSString*)paymentMode
                              andModeType:(NSString*)modeType;
 
++ (double)calculateConvFeesForPayment:(PUMPaymentParam *)paymentParam;
 
 /*!
  * Get base URL to be used with the APIs or WebView for currently active environment
@@ -143,5 +145,9 @@ typedef enum {
 +(NSString *)getTotalAmountFromPaymentResponse:(NSDictionary *) response;
 
 +(NSString *)getPaymentIDFromAddPaymentResponse:(NSDictionary *) response;
+
++(NSString *)getAuthTypeFromAuth:(NSString *) otpOrPassword;
+
++(BOOL)isNumber:(NSString *) str;
 
 @end

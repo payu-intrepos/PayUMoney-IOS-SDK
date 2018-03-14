@@ -85,6 +85,15 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
 
 - (void)verifyOTPOrPassword:(NSString *) otpOrPassword forMobileOrEmail:(NSString *) mobileOrEmail APIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
+- (void)getMultipleBinDetailsAPI:(NSArray *)arrCardBin
+             withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+/**
+ This API is used to mark txn as user cancelled, when user decides to cancel the transaction
+
+ @param completionBlock PUMRawJSONCompletionBlock
+ */
+- (void)markTxnCancelWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 //
 
 + (BOOL)destroy;
