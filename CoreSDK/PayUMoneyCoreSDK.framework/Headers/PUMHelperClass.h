@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PUMPaymentParam.h"
 
 @interface PUMHelperClass : NSObject
 
 + (double)calculateConvFeesForPaymentMode:(NSString*)paymentMode
                              andModeType:(NSString*)modeType
                           isSplitPayment:(BOOL)splitPayment;
+
++ (double)calculateConvFeesForPayment:(PUMPaymentParam *)paymentParam;
+
 
 + (BOOL)isCardNumberValid:(NSString *)cardNumber cardType:(NSString *)cardType;
 
@@ -23,6 +27,8 @@
 + (BOOL)isCvvValid:(NSString *)cvv forCardType:(NSString *)cardType;
 
 + (BOOL)isValidPhoneNumber:(NSString *)phoneNumber;
+
++ (BOOL)canSaveCardWithCountry:(NSString *)countryCode;
 
 + (BOOL)isValidAmount:(NSString *)amount;
 
@@ -41,5 +47,6 @@
 + (NSString *)getUserMobileNumberFromFetchUserDataAPI;
 
 + (NSString *)getUserEmailFromFetchUserDataAPI;
+
 
 @end

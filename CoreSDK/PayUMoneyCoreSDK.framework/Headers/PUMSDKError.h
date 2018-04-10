@@ -66,7 +66,11 @@ typedef NS_ENUM(NSInteger, PUMSDKErrorCode)
     PUMErrorNBUnavailable,
     PUMErrorWalletUnavailable,
     PUMErrorPaymentIDUnavailable,
-    PUMErrorMobileOrEmailInvalid
+    PUMErrorMobileOrEmailInvalid,
+    PUMError3PWalletUnavailable,
+    PUMErrorSplitNotAllowedWith3PWallet,
+    PUMError3PWalletNotSupported,
+    PUMErrorCantSaveCard
 };
 
 +(NSError *)toNSError:(int)errorCode

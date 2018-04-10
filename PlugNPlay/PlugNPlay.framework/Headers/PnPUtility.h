@@ -89,4 +89,19 @@
 +(NSDecimalNumber *)roundUpNumberTo2DecimalPlaces:(NSDecimalNumber *) number;
 +(NSString *)getDisplayCardNameForCardNumber:(NSString *)cardNumber pg:(NSString *) pg;
 +(BOOL)isAmexCard:(NSString *)cardNumber;
+
++ (NSArray *)topNBBanks;
+
++ (void)saveTopNBBanks:(NSArray *)topNBBanks;
+
++ (void)usedNBForBank:(NSString *)bankName andBankCode:(NSString *)bankCode;
+
++ (NSArray *)selectedWallets;
+
++ (void)usedWallet:(NSString *)name code:(NSString *)code;
++ (void)saveTopWallets:(NSArray *)topWallets;
+
++ (NSArray *)getCardBinsArrayFromStoredCardArray:(NSArray *) arr;
++(NSString *)getDisplayCardNameForBankName:(NSString *)bankName pg:(NSString *) pg;
+
 @end

@@ -20,4 +20,8 @@
 
 @property BOOL validateDetails;
 
+@property BOOL shouldSave;
+
+@property (strong, nonatomic) NSString *countryCode;
+
 @end

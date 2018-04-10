@@ -36,6 +36,7 @@
 #define USER_LOAD_WALLET_URL                        @"payment/app/wallet/loadWalletPayment"
 #define USER_FETCH_PAYMENT_USER_DATA_URL            @"payment/app/v1/fetchPaymentUserData"
 #define FETCH_USER_DATA_URL                         @"payment/op/v1/fetchUserDataFromEmailMobile"
+#define GET_MULTIPLE_BIN_DETAILS                    @"payment/op/v1/getMultipleBinDetails"
 
 
 //Cards
@@ -61,6 +62,7 @@
 #define OTP_URL                                     @"auth/op/generateAndSendOTP"
 #define Forgot_Password_URL                         @"auth/app/forgot/password"
 #define Cancel_Transaction_URL                      @"payment/postBackParam.do"
+#define Cancel_Transaction                          @"payment/postBackParamIcp.do"
 #define Post_Payment_URL                            @"payment/app/postPayment"
 
 // ONE_TAP_ENABLE
@@ -329,10 +331,13 @@ typedef NS_ENUM(NSInteger,SDK_REQUEST_TYPE ) {
     SDK_EMI_DETAILS,
     SDK_ANALYTICS_FETCH_API_TOKEN,
     SDK_ANALYTICS_SEND,
-    SDK_FETCH_USER_DATA
+    SDK_FETCH_USER_DATA,
+    SDK_GET_MULTIPLE_BIN_DETAILS
     
 };
 
+static NSString *const kPUMAOTP = @"OTP";
+static NSString *const kPUMAPassword = @"Password";
 
 
 @interface PUMInternalConstants : NSObject

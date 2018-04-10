@@ -50,6 +50,9 @@
 //sets the Merchant display name of the Plug and  Play SDK UI
 +(void) setMerchantDisplayName:(NSString *)merchantDisplayName;
 
+//When Sent YES, it disables the exit alert on bank page, app gets back to merchant app immideatly after the back press
++(void)setExitAlertOnBankPageDisabled:(BOOL)isDisabled;
+
 +(UIColor *)getTopBarColor;
 
 +(UIColor *)getTopTitleTextColor;
@@ -59,6 +62,8 @@
 +(UIColor *)getButtonTextColor;
 
 +(NSString *)getMerchantDisplayName;
+
++(BOOL)isExitAlertOnBankPageDisabled;
 
 + (unsigned int)intFromHexString:(NSString *)hexStr;
 @end
