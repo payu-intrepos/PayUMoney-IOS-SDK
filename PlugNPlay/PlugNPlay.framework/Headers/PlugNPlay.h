@@ -30,6 +30,9 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 //When Sent YES, it disables the Third party wallet payment UI in the Plug and Play Payment UI
 +(void)setDisableThirdPartyWallet:(BOOL)isDisabled;
 
+//When Sent YES, it disables the EMI payment UI in the Plug and Play Payment UI
++(void)setDisableEMI:(BOOL)isDisabled;
+
 //When Sent YES, it disables the payment Completion Screen, app gets back to merchant app immideatly after the payment
 +(void)setDisableCompletionScreen:(BOOL)isDisabled;
 
@@ -61,6 +64,12 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 //sets the indicator tint color on PnP UI
 +(void)setIndicatorTintColor:(UIColor*)color;
 
+/// Set this property to show order details. This should only contain NSDictionary objects with only one key value pair.
++(NSError *)setOrderDetails:(NSArray*)orderDetails;
+
+/// Returns details of order containing NSDictionary
++(NSArray*)orderDetails;
+
 //set payment paramters
 //+(void)setPaymentParams:(PUMRequestParams*)paymentParams;
 
@@ -69,6 +78,7 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 +(BOOL)disableCards;
 +(BOOL)disableNetbanking;
 +(BOOL)disableThirdPartyWallet;
++(BOOL)disableEMI;
 +(BOOL)disableCompletionScreen;
 +(BOOL)isExitAlertOnCheckoutPageDisabled;
 +(BOOL)isExitAlertOnBankPageDisabled;

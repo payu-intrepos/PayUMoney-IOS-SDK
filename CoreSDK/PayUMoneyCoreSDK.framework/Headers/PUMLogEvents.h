@@ -14,12 +14,16 @@ static NSString *const KPUMAWalletValue = @"PUMWallet";
 static NSString *const KPUMAWalletCardValue = @"PUMWallet|Cards";
 static NSString *const KPUMAWalletNetBankValue = @"PUMWallet|Bank";
 static NSString *const KPUMA3PWallet = @"3PWallet";
+static NSString *const KPUMAEMI = @"EMI";
 
 static NSString *const kPUMAScreenTypeCheckout = @"Checkout";
 static NSString *const kPUMAScreenTypeAddCard = @"AddCard";
 static NSString *const kPUMAScreenTypeCVVEntry = @"CVVEntry";
+static NSString *const kPUMAScreenTypeEMITenure = @"EMITenure";
+static NSString *const kPUMAScreenTypeEMIAddCard = @"EMIAddCard";
 static NSString *const kPUMAScreenTypeMoreNetBank = @"MoreNetBank";
 static NSString *const kPUMAScreenTypeMore3PWallets = @"More3PWallets";
+static NSString *const kPUMAScreenTypeMoreEMI = @"MoreEMI";
 static NSString *const kPUMAScreenTypeLogin = @"Login";
 static NSString *const kPUMAScreenTypeVerifyOTP = @"VerifyOTP";
 static NSString *const kPUMAScreenTypeWebView = @"WebView";
@@ -91,8 +95,7 @@ static NSString *const kPUMAInvalidCVV = @"Invalid CVV";
 
 +(void)more3PWalletsClicked;
 
-//+(void)moreEMIBanksClicked;
-
++(void)moreEMIBanksClicked:(NSString *)amount;
 //+(void)twoFALoaded;
 
 +(void)paymentAbandonedWithReason:(NSString *)reason;
@@ -100,6 +103,14 @@ static NSString *const kPUMAInvalidCVV = @"Invalid CVV";
 +(void)nbUnreachableWithBankName:(NSString *)bankName;
 
 +(void)thirdPartyWalletPayment:(NSString *)walletName;
+
++(void)EMIPaymentInitiated:(NSString *)bankName amount:(NSString *)amount;
+
++(void)EMITenureSelected:(NSString *)tenure bankName:(NSString *)bankName amount:(NSString *)amount;
+
++(void)EMICardSaved:(NSString *)cardScheme bankName:(NSString *)bankName amount:(NSString *)amount;
+
++(void)EMIBankChangedWithSelectedBank:(NSString *)bankName prevBank:(NSString *)prevBank page:(NSString *)page amount:(NSString *)amount;
 
 +(void)invalidPaymentInfoWithPaymentMethod:(NSString *)paymentMethod withReason:(NSString *) reason;
 

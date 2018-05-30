@@ -101,6 +101,11 @@
 + (void)usedWallet:(NSString *)name code:(NSString *)code;
 + (void)saveTopWallets:(NSArray *)topWallets;
 
+
++ (NSArray *)selectedEMIOptions;
++ (void)usedEMIOption:(NSString *)name code:(NSString *)code;
++ (void)saveTopEMIOptions:(NSArray *)topEMIOptions;
+
 + (NSArray *)getCardBinsArrayFromStoredCardArray:(NSArray *) arr;
 +(NSString *)getDisplayCardNameForBankName:(NSString *)bankName pg:(NSString *) pg;
 

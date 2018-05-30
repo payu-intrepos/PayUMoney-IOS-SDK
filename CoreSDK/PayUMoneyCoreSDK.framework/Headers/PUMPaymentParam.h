@@ -10,13 +10,15 @@
 #import "PUMSaveCardBO.h"
 #import "PUMNetBankingBO.h"
 #import "PUMCCDC.h"
+#import "PUMEMI.h"
 
 typedef NS_ENUM(NSInteger, PUMPaymentMode) {
     PUMPaymentModeNone = 0,
     PUMPaymentModeCCDC,
     PUMPaymentModeNetBanking,
     PUMPaymentModeStoredCard,
-    PUMPaymentMode3PWallet
+    PUMPaymentMode3PWallet,
+    PUMPaymentModeEMI
 };
 @interface PUMPaymentParam : NSObject
 
@@ -25,6 +27,7 @@ typedef NS_ENUM(NSInteger, PUMPaymentMode) {
 @property (strong, nonatomic) PUMNetBankingBO * objNetBanking;
 @property (strong, nonatomic) PUMCCDC * objCCDC;
 @property (strong, nonatomic) PUMNetBankingBO * obj3PWallet;
+@property (strong, nonatomic) PUMEMI * objEMI;
 
 /**
  Set payment mode

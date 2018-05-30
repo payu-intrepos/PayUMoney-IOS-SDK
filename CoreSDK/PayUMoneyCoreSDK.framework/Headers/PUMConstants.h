@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, PUMEnvironment) {
 
 
 
+#define     EMI_SMALL                                           @"emi"
+#define     EMI                                                 @"EMI"
 #define     CASH_CARD_SMALL                                     @"cashcard"
 #define     CASH_CARD_CAPITAL                                   @"CASHCARD"
 #define     CASH                                                @"CASH"
