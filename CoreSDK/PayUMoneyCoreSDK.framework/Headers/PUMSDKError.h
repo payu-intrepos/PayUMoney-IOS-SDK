@@ -70,7 +70,13 @@ typedef NS_ENUM(NSInteger, PUMSDKErrorCode)
     PUMError3PWalletUnavailable,
     PUMErrorSplitNotAllowedWith3PWallet,
     PUMError3PWalletNotSupported,
-    PUMErrorCantSaveCard
+    PUMErrorCantSaveCard,
+    PUMErrorEMIUnavailable,
+    PUMErrorEMIOptionUnavailable,
+    PUMErrorSplitNotAllowedWithEMI,
+    PUMErrorInternationalCardWithEMI,
+    PUMErrorDebitCardWithEMI,
+    PUMInvalidReviewOrder
 };
 
 +(NSError *)toNSError:(int)errorCode

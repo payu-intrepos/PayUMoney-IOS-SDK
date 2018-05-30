@@ -34,9 +34,11 @@
                      @"LogOut",
                      @"Login",
                      @"PayViaCCDC",
+                     @"PayVia3rdPartyWallet",
                      @"PayViaNetBanking",
                      @"PayViaStoredCard",
                      @"PayViaWallet",
+                     @"PayViaEMI",
                      @"NitroFlags",
                      @"VerifyOTP",
                      @"FetchUserDataAPI",
@@ -101,7 +103,6 @@
                 }
                 else{
                     [self fetchPaymentUserData];
-                    
                 }
             }];
         }
@@ -117,6 +118,14 @@
             break;
         case 6:
         {
+            PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
+            paymentVC.paymentMode = PUMPaymentMode3PWallet;
+            paymentVC.arrNetBank = [self getAvailable3PWallet];
+            [self.navigationController pushViewController:paymentVC animated:YES];
+        }
+            break;
+        case 7:
+        {
             if (![[self.arrOfAPI objectAtIndex:indexPath.row] isEqualToString:BLANK]) {
                 PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
                 paymentVC.paymentMode = PUMPaymentModeNetBanking;
@@ -125,7 +134,7 @@
             }
         }
             break;
-        case 7:
+        case 8:
         {
             NSDictionary *dict = self.fetchPaymentUserDataAPIResponse ? self.fetchPaymentUserDataAPIResponse :self.fetchUserDataAPIResponse;
             NSArray *arrSavedCard = [[dict valueForKey:@"result"] valueForKey:@"savedCards"];
@@ -135,14 +144,22 @@
             [self.navigationController pushViewController:paymentVC animated:YES];
         }
             break;
-        case 8:
+        case 9:
         {
             PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
             paymentVC.paymentMode = PUMPaymentModeNone;
             [self.navigationController pushViewController:paymentVC animated:YES];
         }
             break;
-        case 9:
+        case 10:
+        {
+            PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
+            paymentVC.paymentMode = PUMPaymentModeEMI;
+            paymentVC.arrNetBank = [self getAvailableEMI];
+            [self.navigationController pushViewController:paymentVC animated:YES];
+        }
+            break;
+        case 11:
         {
             //            @"NitroFlags",
             NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -157,14 +174,14 @@
             [Utils showMsgWithTitle:@"NitroFlags" message:[NSString stringWithFormat:@"%@",dict]];
         }
             break;
-        case 10:
+        case 12:
         {
             //            @"VerifyOTP",
             VerifyOTPVC *verifyOTPVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([VerifyOTPVC class])];
             [self.navigationController pushViewController:verifyOTPVC animated:YES];
         }
             break;
-        case 11:
+        case 13:
         {
             //            @"FetchUserDataAPI",
             msg = [NSString stringWithFormat:@"%@",self.fetchUserDataAPIResponse];
@@ -193,17 +210,43 @@
 }
 
 -(NSMutableArray *)getAvailableNB{
-    NSMutableArray *arrNB;
-    NSString *str = [[[[self.addPaymentAPIResponse objectForKey:@"result"] objectForKey:@"paymentOptions"] objectForKey:@"options"] objectForKey:@"nb"];
-    if (![str isEqualToString:@"-1"]) {
-        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *err;
-        NSDictionary *ccoptions = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
-        arrNB = [NSMutableArray new];
+    return [self getAvailablePartnersForMode:@"nb"];
+}
+
+-(NSMutableArray *)getAvailable3PWallet{
+    return [self getAvailablePartnersForMode:@"cashcard"];
+}
+
+-(NSMutableArray *)getAvailableEMI{
+    return [self getAvailablePartnersForMode:@"emi"];
+}
+
+- (id)objectFromString:(NSString *)str {
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *ccoptions = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
+    return ccoptions;
+}
+
+- (NSMutableArray *)getAvailablePartnersForMode:(NSString *)mode {
+    NSMutableArray *paymentOptions;
+    NSString *str = [[[[self.addPaymentAPIResponse objectForKey:@"result"] objectForKey:@"paymentOptions"] objectForKey:@"options"] objectForKey:mode];
+    if ( [str isKindOfClass:[NSString class]] && ![str isEqualToString:@"-1"]) {
+        NSDictionary * ccoptions = [self objectFromString:str];
+        paymentOptions = [NSMutableArray new];
         [ccoptions enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            [arrNB addObject:[NSDictionary dictionaryWithObject:obj forKey:key]];
+            if ([obj isKindOfClass:[NSString class]]) {
+                [paymentOptions addObject:[NSDictionary dictionaryWithObject:[self objectFromString:obj] forKey:key]];
+            }
+            else {
+                [paymentOptions addObject:[NSDictionary dictionaryWithObject:obj forKey:key]];
+            }
         }];
     }
-    return arrNB;
+    if ([mode isEqualToString:EMI_SMALL]) {
+        return [[PayUMoneyCoreSDK sharedInstance] validEmiOptions:paymentOptions];
+    }
+    return paymentOptions;
 }
+
 @end

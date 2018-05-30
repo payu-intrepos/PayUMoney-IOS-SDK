@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66BA094220BE6AC6002BD702 /* EMISelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA094020BE6AC6002BD702 /* EMISelectorViewController.m */; };
 		DD03C87E1F04C0F7002DB245 /* APIListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD03C87D1F04C0F7002DB245 /* APIListVC.m */; };
 		DD26C6181F443C52001C8B30 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DD26C6171F443C52001C8B30 /* iOSDefaultActivityIndicator.m */; };
 		DD2B48301F09E6B9003EEC4F /* PaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B482F1F09E6B9003EEC4F /* PaymentVC.m */; };
@@ -39,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		66BA094020BE6AC6002BD702 /* EMISelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMISelectorViewController.m; sourceTree = "<group>"; };
+		66BA094120BE6AC6002BD702 /* EMISelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMISelectorViewController.h; sourceTree = "<group>"; };
 		DD03C87C1F04C0F7002DB245 /* APIListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIListVC.h; sourceTree = "<group>"; };
 		DD03C87D1F04C0F7002DB245 /* APIListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIListVC.m; sourceTree = "<group>"; };
 		DD26C6161F443C52001C8B30 /* iOSDefaultActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDefaultActivityIndicator.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				DD4BFF9B1F096258007D677B /* Utils.m */,
 				DD26C6161F443C52001C8B30 /* iOSDefaultActivityIndicator.h */,
 				DD26C6171F443C52001C8B30 /* iOSDefaultActivityIndicator.m */,
+				66BA094120BE6AC6002BD702 /* EMISelectorViewController.h */,
+				66BA094020BE6AC6002BD702 /* EMISelectorViewController.m */,
 				DD2B482E1F09E6B9003EEC4F /* PaymentVC.h */,
 				DD2B482F1F09E6B9003EEC4F /* PaymentVC.m */,
 				DD2B48311F0A1C3C003EEC4F /* Constants.h */,
@@ -239,6 +244,7 @@
 				DD26C6181F443C52001C8B30 /* iOSDefaultActivityIndicator.m in Sources */,
 				DD5F179A1F039B0100AFD19E /* HomeTableCell.m in Sources */,
 				DD03C87E1F04C0F7002DB245 /* APIListVC.m in Sources */,
+				66BA094220BE6AC6002BD702 /* EMISelectorViewController.m in Sources */,
 				DD2B48331F0A1C3C003EEC4F /* Constants.m in Sources */,
 				DD41AD8F2007622A00A25D1F /* VerifyOTPVC.m in Sources */,
 			);

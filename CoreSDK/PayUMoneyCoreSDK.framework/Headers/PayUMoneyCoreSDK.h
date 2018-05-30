@@ -18,7 +18,6 @@
 #import "PUMTextField.h"
 #import "PUMLogEvents.h"
 
-
 #define SDK_Default_COLOR UIColorFromRGB([PUMUIConfig intFromHexString:defaultLinkTextColor])
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -30,6 +29,11 @@
 
 typedef void (^PUMRawJSONCompletionBlock)(NSDictionary *response ,NSError *error, id extraParam);
 typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error ,NSError *validationError, id extraParam);
+/**
+ This completion blocks takes actionOccurred as a param and returns the title of the RightBarButton in Payment's WebView
+ */
+typedef NSString* (^PUMRightActionCompletionBlock)(BOOL actionOccurred);
+
 @interface PayUMoneyCoreSDK : NSObject
 
 
@@ -47,6 +51,7 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
 
 + (PayUMoneyCoreSDK *)sharedInstance;
 
+@property (copy,nonatomic) PUMRightActionCompletionBlock rightActionBlock;
 
 /**
  *   isUserSignedIn.
@@ -61,6 +66,12 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
  */
 + (BOOL)signOut;
 
+/// Set this property to show order details. This should only contain NSDictionary objects with only one key value pair.
+-(NSError *)setOrderDetails:(NSArray*)orderDetails;
+
+/// Returns details of order containing NSDictionary
+-(NSArray*)orderDetails;
+
 - (void)showLoginVCOnViewController:(UIViewController *)viewController
                 withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
@@ -71,6 +82,13 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
 
 //APIs
 - (void)addPaymentAPIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+/// This method is used for getting updated emi tenures (including convenience fee) from bank code
+- (void)getEMIOptionsForBank:(NSString *)bankCode completion:(PUMRawJSONCompletionBlock)completionBlock;
+
+
+/// This method is used for getting updated emi tenures on the basis of amount provided. Amount should contain convenience fee as well
+- (void)getEMIOptionsForAmount:(NSString *)amount completion:(PUMRawJSONCompletionBlock)completionBlock;
 
 - (void)fetchPaymentUserDataAPIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
@@ -87,6 +105,14 @@ typedef void (^PUMPaymentCompletionBlock)(NSDictionary *response ,NSError *error
 
 - (void)getMultipleBinDetailsAPI:(NSArray *)arrCardBin
              withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
+
+/**
+ Returns Valid EMI Options. It takes minimum value for EMI into consideration.
+ 
+ @param emiArray The array from which valid EMI option is to be fetched
+ @return Valid EMI Options
+ */
+- (NSMutableArray *)validEmiOptions:(NSMutableArray *)emiArray;
 
 /**
  This API is used to mark txn as user cancelled, when user decides to cancel the transaction

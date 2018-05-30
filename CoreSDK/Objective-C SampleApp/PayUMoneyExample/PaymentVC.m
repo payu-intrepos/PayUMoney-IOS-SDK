@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "Utils.h"
 #import "iOSDefaultActivityIndicator.h"
+#import "EMISelectorViewController.h"
 
 
 @interface PaymentVC ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
@@ -28,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchUseWallet;
 @property (weak, nonatomic) IBOutlet UILabel *lblUseWallet;
 @property (weak, nonatomic) IBOutlet UISwitch *validateDetails;
+@property (weak, nonatomic) IBOutlet UISwitch *saveCardSwitch;
+
 @property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
 
 @end
@@ -39,7 +42,10 @@
     if (self.paymentMode == PUMPaymentModeCCDC) {
         self.vwCCDC.hidden = NO;
     }
-    else if (self.paymentMode == PUMPaymentModeNetBanking){
+    else if (self.paymentMode == PUMPaymentModeNetBanking || self.paymentMode == PUMPaymentMode3PWallet || self.paymentMode == PUMPaymentModeEMI){
+        if (self.paymentMode == PUMPaymentModeEMI) {
+            self.vwCCDC.hidden = NO;
+        }
         self.vwStoredCard.hidden = NO;
     }
     else if (self.paymentMode == PUMPaymentModeStoredCard){
@@ -52,7 +58,7 @@
     self.switchUseWallet.hidden = NO;
     self.lblUseWallet.hidden = NO;
     selectedIndex = -1;
-    if (!(self.paymentMode == PUMPaymentModeStoredCard || self.paymentMode == PUMPaymentModeNetBanking)){
+    if (!(self.paymentMode == PUMPaymentModeStoredCard || self.paymentMode == PUMPaymentModeNetBanking || self.paymentMode == PUMPaymentMode3PWallet || self.paymentMode == PUMPaymentModeEMI)){
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
         [self.view addGestureRecognizer:tapGesture];
     }
@@ -66,6 +72,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)getBinDetails:(NSString *)cardNumber withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock {
+    self.defaultActivityIndicator = [iOSDefaultActivityIndicator new];
+    [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
+    
+    [[PayUMoneyCoreSDK sharedInstance] getBinDetailsAPI:cardNumber withCompletionBlock:^(NSDictionary *response, NSError *error, id extraParam) {
+        [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+        if (!error) {
+            if ([response[@"result"] isKindOfClass:[NSDictionary class]]) {
+                completionBlock(response,error,extraParam);
+            }
+            else{
+                [Utils showMsgWithTitle:@"Error" message:[PUMSDKError getErrorForCode:PUMErrorCardDetailFailed].localizedDescription];
+            }
+        }
+        else{
+            [Utils showMsgWithTitle:@"Error" message:error.localizedDescription];
+        }
+    }];
+}
+
 - (IBAction)btnTappedPayNow:(id)sender {
     PUMPaymentParam *paymentParam = [[PUMPaymentParam alloc] init];
     
@@ -74,37 +100,36 @@
     }
     
     if (self.paymentMode == PUMPaymentModeCCDC) {
-        paymentParam.objCCDC.cardNumber = self.tfCCNum.text;
-        paymentParam.objCCDC.expiryMonth = self.tfExpMonth.text;
-        paymentParam.objCCDC.expiryYear = self.tfExpYear.text;
-        paymentParam.objCCDC.cvv = self.tfCVV.text;
+        [self setUpCardParamsForCCDC:paymentParam];
         paymentParam.paymentMode = PUMPaymentModeCCDC;
         
+        __weak PaymentVC *weakSelf = self;
+        [self getBinDetails:paymentParam.objCCDC.cardNumber withCompletionBlock:^(NSDictionary *response, NSError *error, id extraParam) {
+            NSDictionary *result = response[@"result"];
+            paymentParam.objCCDC.pg = result[@"category"];
+            paymentParam.objCCDC.cardType = result[@"binOwner"];
+            paymentParam.objCCDC.countryCode = result[@"countryCode"];
+            
+            [weakSelf showWebView:paymentParam];
+        }];
+    }
+    else if (self.paymentMode == PUMPaymentMode3PWallet && selectedIndex>=0){
+        paymentParam.obj3PWallet.bankCode = [[[self.arrNetBank objectAtIndex:selectedIndex] allKeys] firstObject];
+        paymentParam.paymentMode = PUMPaymentMode3PWallet;
+        [self showWebView:paymentParam];
+    }
+    else if (self.paymentMode == PUMPaymentModeEMI && selectedIndex>=0){
+        [self setUpCardParamsForEMI:paymentParam];
+        paymentParam.paymentMode = PUMPaymentModeEMI;
         
-        
-        self.defaultActivityIndicator = [iOSDefaultActivityIndicator new];
-        [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
-        
-        [[PayUMoneyCoreSDK sharedInstance] getBinDetailsAPI:paymentParam.objCCDC.cardNumber withCompletionBlock:^(NSDictionary *response, NSError *error, id extraParam) {
-            [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-            if (!error) {
-                if ([response[@"result"] isKindOfClass:[NSDictionary class]]) {
-                    NSDictionary *result = response[@"result"];
-                    paymentParam.objCCDC.pg = result[@"category"];
-                    paymentParam.objCCDC.cardType = result[@"binOwner"];
-                    if (self.validateDetails.on){
-                        paymentParam.objCCDC.validateDetails = YES;
-                    }
-                    
-                    [self showWebView:paymentParam];
-                }
-                else{
-                    [Utils showMsgWithTitle:@"Error" message:[PUMSDKError getErrorForCode:PUMErrorCardDetailFailed].localizedDescription];
-                }
-            }
-            else{
-                [Utils showMsgWithTitle:@"Error" message:error.localizedDescription];
-            }
+        __weak PaymentVC *weakSelf = self;
+        [self getBinDetails:paymentParam.objEMI.cardNumber withCompletionBlock:^(NSDictionary *response, NSError *error, id extraParam) {
+            NSDictionary *result = response[@"result"];
+            paymentParam.objEMI.pg = EMI;
+            paymentParam.objEMI.cardType = result[@"binOwner"];
+            paymentParam.objEMI.countryCode = result[@"countryCode"];
+            paymentParam.objEMI.isCreditCard = ![[result[@"category"] lowercaseString] isEqualToString:@"dc"];
+            [weakSelf openEMITenureScreen:paymentParam];
         }];
     }
     else if (self.paymentMode == PUMPaymentModeNetBanking && selectedIndex>=0){
@@ -127,7 +152,35 @@
     
 }
 
+- (void)setUpCardParamsForCCDC:(PUMPaymentParam *)params {
+    params.objCCDC.cardNumber = self.tfCCNum.text;
+    params.objCCDC.expiryMonth = self.tfExpMonth.text;
+    params.objCCDC.expiryYear = self.tfExpYear.text;
+    params.objCCDC.cvv = self.tfCVV.text;
+    params.objCCDC.shouldSave = _saveCardSwitch.isOn;
+    params.objCCDC.validateDetails = self.validateDetails.isOn;
+}
+
+- (void)setUpCardParamsForEMI:(PUMPaymentParam *)params {
+    params.objEMI.cardNumber = self.tfCCNum.text;
+    params.objEMI.expiryMonth = self.tfExpMonth.text;
+    params.objEMI.expiryYear = self.tfExpYear.text;
+    params.objEMI.cvv = self.tfCVV.text;
+    params.objEMI.shouldSave = _saveCardSwitch.isOn;
+    params.objEMI.validateDetails = self.validateDetails.isOn;
+}
+
+-(void)openEMITenureScreen:(PUMPaymentParam *)paymentParam {
+    NSDictionary *emiDictionary = [self.arrNetBank objectAtIndex:selectedIndex];
+
+    EMISelectorViewController *emiSelectorVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EMISelectorViewController"];
+    [emiSelectorVC setBankCode:[[emiDictionary allKeys] firstObject]];
+    [emiSelectorVC setPaymentParams:paymentParam];
+    [self.navigationController pushViewController:emiSelectorVC animated:YES];
+}
+
 -(void)showWebView:(PUMPaymentParam *)paymentParam{
+    [[PayUMoneyCoreSDK sharedInstance] setOrderDetails:[self testOrderDetailsArray]];
     [[PayUMoneyCoreSDK sharedInstance] showWebViewWithPaymentParam:paymentParam
                                                   onViewController:self
                                                withCompletionBlock:^(NSDictionary *response, NSError *error, NSError *validationError, id extraParam) {
@@ -143,6 +196,9 @@
                                                }];
 }
 
+- (NSArray *)testOrderDetailsArray {
+    return @[@{@"From":@"Delhi"}, @{@"To":@"Pune"}];
+}
 
 #pragma mark - Table view data source
 
@@ -151,7 +207,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.paymentMode == PUMPaymentModeNetBanking){
+    if (self.paymentMode != PUMPaymentModeStoredCard ){
         return self.arrNetBank.count;
     }
     else{
@@ -163,9 +219,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
 
-    if (self.paymentMode == PUMPaymentModeNetBanking){
+    if (self.paymentMode != PUMPaymentModeStoredCard ){
         NSDictionary *eachNetBank = [self.arrNetBank objectAtIndex:indexPath.row];
-        cell.textLabel.text = [[[eachNetBank allValues] firstObject] objectForKey:@"title"];
+        if (_paymentMode == PUMPaymentModeEMI) {
+            NSDictionary *firstEMIOption = [[[[eachNetBank allValues] firstObject] allValues] firstObject];
+            cell.textLabel.text = [firstEMIOption valueForKey:@"bank"];
+        }
+        else {
+            cell.textLabel.text = [[[eachNetBank allValues] firstObject] objectForKey:@"title"];
+        }
         cell.detailTextLabel.text = [[eachNetBank allKeys] firstObject];
     }
     else{
