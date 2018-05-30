@@ -1,10 +1,10 @@
-    //
-    //  ViewController.m
-    //  PlugNPlayExample
-    //
-    //  Created by Yadnesh Wankhede on 8/8/16.
-    //  Copyright © 2016 Citrus Payment Solutions, Pvt. Ltd. All rights reserved.
-    //
+//
+//  ViewController.m
+//  PlugNPlayExample
+//
+//  Created by Yadnesh Wankhede on 8/8/16.
+//  Copyright © 2016 Citrus Payment Solutions, Pvt. Ltd. All rights reserved.
+//
 
 #import "ViewController.h"
 #import <CommonCrypto/CommonDigest.h>
@@ -32,7 +32,11 @@
     NSString *returnUrl;
 }
 @property BOOL isCompletionDisable;
+@property BOOL isExitAlertOnBankPageDisable;
+@property BOOL isExitAlertOnCheckoutPageDisable;
 @property BOOL isWalletDisable;
+@property BOOL is3PDisable;
+@property BOOL isEMIDisable;
 @property BOOL isCardsDisable;
 @property BOOL isNetbankDisable;
 @end
@@ -51,7 +55,7 @@
     tapScroll.cancelsTouchesInView = YES;
     [_scrollView addGestureRecognizer:tapScroll];
     
-//    self.version.text = [NSString stringWithFormat:@"© PlugNPlay Demo v%@", PLUGNPLAY_VERSION];
+    self.version.text = [NSString stringWithFormat:@"© PlugNPlay Demo v%@", @""];
 
     _scrollView.delegate = self;
     
@@ -86,7 +90,7 @@
     [super viewWillAppear:animated];
     // [self keyBoardNotification];
     [self registerForKeyboardNotifications];
-    self.scrollView.contentSize = CGSizeMake(SCROLLVIEW_WIDTH, SCROLLVIEW_HEIGHT);
+//    self.scrollView.contentSize = CGSizeMake(SCROLLVIEW_WIDTH, SCROLLVIEW_HEIGHT);
     keyboardVisible = NO;
     
     if ([PayUMoneyCoreSDK isUserSignedIn]) {
@@ -150,10 +154,16 @@
     
     //Customize plug and play's behaviour//optional step
     [PlugNPlay setDisableCompletionScreen:_isCompletionDisable];
+    [PlugNPlay setExitAlertOnBankPageDisabled:_isExitAlertOnBankPageDisable];
+    [PlugNPlay setExitAlertOnCheckoutPageDisabled:_isExitAlertOnCheckoutPageDisable];
     [PlugNPlay setDisableCards:_isCardsDisable];
     [PlugNPlay setDisableNetbanking:_isNetbankDisable];
     [PlugNPlay setDisableWallet:_isWalletDisable];
+    [PlugNPlay setDisableThirdPartyWallet:_is3PDisable];
+    [PlugNPlay setDisableEMI:_isEMIDisable];
     
+    [PlugNPlay setOrderDetails:[self testOrderDetailsArray]];
+
     PUMTxnParam * txnParam = [self getTxnParam];
     [self rememberEnteredDetails];
     
@@ -179,6 +189,10 @@
     
 }
 
+- (NSArray *)testOrderDetailsArray {
+    return @[@{@"From":@"Delhi"}, @{@"To":@"Pune"}];
+}
+
 - (IBAction)resetTheme:(id)sender {
     [self resetThemeDetails];
 }
@@ -200,6 +214,25 @@
     }
     _isCompletionDisable = isDisable;
 }
+
+- (IBAction)disableExitAlertOnBankPage:(id)sender {
+    UISwitch *completionSwitch = (UISwitch *)sender;
+    BOOL isDisable = NO;
+    if (completionSwitch.isOn) {
+        isDisable = YES;
+    }
+    _isExitAlertOnBankPageDisable = isDisable;
+}
+
+- (IBAction)disableExitAlertOnCheckoutPage:(id)sender {
+    UISwitch *completionSwitch = (UISwitch *)sender;
+    BOOL isDisable = NO;
+    if (completionSwitch.isOn) {
+        isDisable = YES;
+    }
+    _isExitAlertOnCheckoutPageDisable = isDisable;
+}
+
 - (IBAction)disableWallet:(id)sender{
     UISwitch *walletSwitch = (UISwitch *)sender;
     BOOL isDisable = NO;
@@ -208,6 +241,16 @@
     }
     _isWalletDisable = isDisable;
 }
+
+- (IBAction)disable3PWallets:(UISwitch *)sender{
+    _is3PDisable = sender.isOn;
+}
+
+- (IBAction)disableEMI:(UISwitch *)sender {
+    _isEMIDisable = sender.isOn;
+}
+
+
 - (IBAction)disableNetbanking:(id)sender{
     UISwitch *netBankingSwitch = (UISwitch *)sender;
     BOOL isDisable = NO;
@@ -337,6 +380,10 @@
     [self loadThemeColor];
 }
 
+- (BOOL)shouldUseProdKeys {
+    PUMEnvironment environment = [self selectedEnv];
+    return environment == PUMEnvironmentProduction || environment == PUMEnvironmentTest;
+}
 
 #pragma mark - Helper methods
 
@@ -350,8 +397,8 @@
     txnParam.amount = tfAmount.text;
     txnParam.environment = [self selectedEnv];
     txnParam.firstname = @"UserFirstName";
-    txnParam.key = txnParam.environment == PUMEnvironmentProduction ? @"mdyCKV" : @"Aqryi8";
-    txnParam.merchantid = txnParam.environment == PUMEnvironmentProduction ? @"4914106" : @"397202";
+    txnParam.key = [self shouldUseProdKeys] ? @"O15vkB" : @"Aqryi8";
+    txnParam.merchantid = [self shouldUseProdKeys] ? @"4819816" : @"397202";
 //    params.txnid = [NSString stringWithFormat:@"0nf7%@",[self getRandomString:4]];
     txnParam.txnID = @"12";
     txnParam.surl = @"https://www.payumoney.com/mobileapp/payumoney/success.php";
@@ -523,7 +570,6 @@
 
 -(void)doSignOut{
     if ([PayUMoneyCoreSDK isUserSignedIn]) {
-#warning CODE TO BE REMOVED BEFORE GOING LIVE
         [PayUMoneyCoreSDK signOut];
         [UIUtility toastMessageOnScreen:@"Signout Successfull"];
         _logout.enabled = NO;
@@ -536,14 +582,14 @@
 
 -(PUMEnvironment)selectedEnv {
     if(serverSelector.selectedSegmentIndex == 0){
-        return PUMEnvironmentPP44;
+        return PUMEnvironmentPP42;
     }
     return PUMEnvironmentProduction;
 }
 
 //TODO: get rid of this function for test environemnt
 -(NSString*)getHashForPaymentParams:(PUMTxnParam*)txnParam {
-    NSString *salt = txnParam.environment == PUMEnvironmentProduction? @"Je7q3652" : @"ZRC9Xgru";
+    NSString *salt = [self shouldUseProdKeys] ? @"LU1EhObh" : @"ZRC9Xgru";
     NSString *hashSequence = [NSString stringWithFormat:@"%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@",txnParam.key,txnParam.txnID,txnParam.amount,txnParam.productInfo,txnParam.firstname,txnParam.email,txnParam.udf1,txnParam.udf2,txnParam.udf3,txnParam.udf4,txnParam.udf5,txnParam.udf6,txnParam.udf7,txnParam.udf8,txnParam.udf9,txnParam.udf10, salt];
     
     NSString *hash = [[[[[self createSHA512:hashSequence] description]stringByReplacingOccurrencesOfString:@"<" withString:@""]stringByReplacingOccurrencesOfString:@">" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""];
