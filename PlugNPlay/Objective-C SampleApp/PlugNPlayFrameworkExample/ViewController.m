@@ -380,11 +380,6 @@
     [self loadThemeColor];
 }
 
-- (BOOL)shouldUseProdKeys {
-    PUMEnvironment environment = [self selectedEnv];
-    return environment == PUMEnvironmentProduction || environment == PUMEnvironmentTest;
-}
-
 #pragma mark - Helper methods
 
 -(PUMTxnParam*)getTxnParam{
@@ -397,8 +392,8 @@
     txnParam.amount = tfAmount.text;
     txnParam.environment = [self selectedEnv];
     txnParam.firstname = @"UserFirstName";
-    txnParam.key = [self shouldUseProdKeys] ? @"O15vkB" : @"Aqryi8";
-    txnParam.merchantid = [self shouldUseProdKeys] ? @"4819816" : @"397202";
+    txnParam.key =  @"O15vkB";
+    txnParam.merchantid = @"4819816";
 //    params.txnid = [NSString stringWithFormat:@"0nf7%@",[self getRandomString:4]];
     txnParam.txnID = @"12";
     txnParam.surl = @"https://www.payumoney.com/mobileapp/payumoney/success.php";
@@ -582,14 +577,14 @@
 
 -(PUMEnvironment)selectedEnv {
     if(serverSelector.selectedSegmentIndex == 0){
-        return PUMEnvironmentPP42;
+        return PUMEnvironmentTest;
     }
     return PUMEnvironmentProduction;
 }
 
 //TODO: get rid of this function for test environemnt
 -(NSString*)getHashForPaymentParams:(PUMTxnParam*)txnParam {
-    NSString *salt = [self shouldUseProdKeys] ? @"LU1EhObh" : @"ZRC9Xgru";
+    NSString *salt = @"LU1EhObh";
     NSString *hashSequence = [NSString stringWithFormat:@"%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@",txnParam.key,txnParam.txnID,txnParam.amount,txnParam.productInfo,txnParam.firstname,txnParam.email,txnParam.udf1,txnParam.udf2,txnParam.udf3,txnParam.udf4,txnParam.udf5,txnParam.udf6,txnParam.udf7,txnParam.udf8,txnParam.udf9,txnParam.udf10, salt];
     
     NSString *hash = [[[[[self createSHA512:hashSequence] description]stringByReplacingOccurrencesOfString:@"<" withString:@""]stringByReplacingOccurrencesOfString:@">" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""];
