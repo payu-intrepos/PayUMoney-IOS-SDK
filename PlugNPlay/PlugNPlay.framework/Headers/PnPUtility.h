@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import "PlugAndPlayPayment.h"
+
 
 
 @interface PnPUtility : NSObject
@@ -19,6 +19,9 @@
 //+(NSString *)paymentAmount;
 //+(UIViewController *)merchantReturnVC;
 +(id)completionHandler;
+
++(void)cacheFetchUserData:(id)fetchUserData;
++(id)userData;
 
 //+(BOOL)isCompletionScreenDisabled;
 //+(NSString*)merchantDisplayName;

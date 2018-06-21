@@ -15,6 +15,10 @@
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+#define kMerchantKey @"mdyCKV"
+#define kMerchantID @"4914106"
+#define kMerchantSalt @"Je7q3652"
+
 @interface ViewController ()<UIScrollViewDelegate>{
     UITextField *fieldInAction;
     UITextField *activeField;
@@ -34,11 +38,6 @@
 @property BOOL isCompletionDisable;
 @property BOOL isExitAlertOnBankPageDisable;
 @property BOOL isExitAlertOnCheckoutPageDisable;
-@property BOOL isWalletDisable;
-@property BOOL is3PDisable;
-@property BOOL isEMIDisable;
-@property BOOL isCardsDisable;
-@property BOOL isNetbankDisable;
 @end
 
 @implementation ViewController
@@ -156,11 +155,6 @@
     [PlugNPlay setDisableCompletionScreen:_isCompletionDisable];
     [PlugNPlay setExitAlertOnBankPageDisabled:_isExitAlertOnBankPageDisable];
     [PlugNPlay setExitAlertOnCheckoutPageDisabled:_isExitAlertOnCheckoutPageDisable];
-    [PlugNPlay setDisableCards:_isCardsDisable];
-    [PlugNPlay setDisableNetbanking:_isNetbankDisable];
-    [PlugNPlay setDisableWallet:_isWalletDisable];
-    [PlugNPlay setDisableThirdPartyWallet:_is3PDisable];
-    [PlugNPlay setDisableEMI:_isEMIDisable];
     
     [PlugNPlay setOrderDetails:[self testOrderDetailsArray]];
 
@@ -231,42 +225,6 @@
         isDisable = YES;
     }
     _isExitAlertOnCheckoutPageDisable = isDisable;
-}
-
-- (IBAction)disableWallet:(id)sender{
-    UISwitch *walletSwitch = (UISwitch *)sender;
-    BOOL isDisable = NO;
-    if (walletSwitch.isOn) {
-        isDisable = YES;
-    }
-    _isWalletDisable = isDisable;
-}
-
-- (IBAction)disable3PWallets:(UISwitch *)sender{
-    _is3PDisable = sender.isOn;
-}
-
-- (IBAction)disableEMI:(UISwitch *)sender {
-    _isEMIDisable = sender.isOn;
-}
-
-
-- (IBAction)disableNetbanking:(id)sender{
-    UISwitch *netBankingSwitch = (UISwitch *)sender;
-    BOOL isDisable = NO;
-    if (netBankingSwitch.isOn) {
-        isDisable = YES;
-    }
-    _isNetbankDisable = isDisable;
-}
-
-- (IBAction)disableCards:(id)sender{
-    UISwitch *cardsSwitch = (UISwitch *)sender;
-    BOOL isDisable = NO;
-    if (cardsSwitch.isOn) {
-        isDisable = YES;
-    }
-    _isCardsDisable = isDisable;
 }
 
 #pragma mark - Touch events handling
@@ -392,8 +350,8 @@
     txnParam.amount = tfAmount.text;
     txnParam.environment = [self selectedEnv];
     txnParam.firstname = @"UserFirstName";
-    txnParam.key =  @"O15vkB";
-    txnParam.merchantid = @"4819816";
+    txnParam.key =  kMerchantKey;
+    txnParam.merchantid = kMerchantID;
 //    params.txnid = [NSString stringWithFormat:@"0nf7%@",[self getRandomString:4]];
     txnParam.txnID = @"12";
     txnParam.surl = @"https://www.payumoney.com/mobileapp/payumoney/success.php";
@@ -584,7 +542,7 @@
 
 //TODO: get rid of this function for test environemnt
 -(NSString*)getHashForPaymentParams:(PUMTxnParam*)txnParam {
-    NSString *salt = @"LU1EhObh";
+    NSString *salt = kMerchantSalt;
     NSString *hashSequence = [NSString stringWithFormat:@"%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@|%@",txnParam.key,txnParam.txnID,txnParam.amount,txnParam.productInfo,txnParam.firstname,txnParam.email,txnParam.udf1,txnParam.udf2,txnParam.udf3,txnParam.udf4,txnParam.udf5,txnParam.udf6,txnParam.udf7,txnParam.udf8,txnParam.udf9,txnParam.udf10, salt];
     
     NSString *hash = [[[[[self createSHA512:hashSequence] description]stringByReplacingOccurrencesOfString:@"<" withString:@""]stringByReplacingOccurrencesOfString:@">" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""];
