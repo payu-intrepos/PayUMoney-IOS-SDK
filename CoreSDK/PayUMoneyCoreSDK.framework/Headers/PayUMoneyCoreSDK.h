@@ -59,6 +59,12 @@ typedef NSString* (^PUMRightActionCompletionBlock)(BOOL actionOccurred);
  *  @return The User SignedIn YES/NO.
  */
 + (BOOL)isUserSignedIn;
+
+/**
+ *   Tells if guest user is signed up automatically or not.
+ */
++ (BOOL)guestSignUpEnabled;
+
 /**
  *   signOut.
  *

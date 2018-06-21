@@ -18,21 +18,6 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 
 @interface PlugNPlay : NSObject
 
-//When Sent YES, it disables the Wallet payment UI in the Plug and Play Payment UI
-+(void)setDisableWallet:(BOOL)isDisabled;
-
-//When Sent YES, it disables the Cards payment UI in the Plug and Play Payment UI
-+(void)setDisableCards:(BOOL)isDisabled;
-
-//When Sent YES, it disables the Netbanking payment UI in the Plug and Play Payment UI
-+(void)setDisableNetbanking:(BOOL)isDisabled;
-
-//When Sent YES, it disables the Third party wallet payment UI in the Plug and Play Payment UI
-+(void)setDisableThirdPartyWallet:(BOOL)isDisabled;
-
-//When Sent YES, it disables the EMI payment UI in the Plug and Play Payment UI
-+(void)setDisableEMI:(BOOL)isDisabled;
-
 //When Sent YES, it disables the payment Completion Screen, app gets back to merchant app immideatly after the payment
 +(void)setDisableCompletionScreen:(BOOL)isDisabled;
 
@@ -74,11 +59,6 @@ typedef void (^PaymentCompletionHandler)(NSDictionary *paymentResponse, NSError 
 //+(void)setPaymentParams:(PUMRequestParams*)paymentParams;
 
 //Getters
-+(BOOL)disableWallet;
-+(BOOL)disableCards;
-+(BOOL)disableNetbanking;
-+(BOOL)disableThirdPartyWallet;
-+(BOOL)disableEMI;
 +(BOOL)disableCompletionScreen;
 +(BOOL)isExitAlertOnCheckoutPageDisabled;
 +(BOOL)isExitAlertOnBankPageDisabled;
