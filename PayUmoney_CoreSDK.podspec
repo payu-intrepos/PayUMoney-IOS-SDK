@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PayUmoney_CoreSDK"
-  s.version      = "3.4"
+  s.version      = "3.5"
   s.summary      = "PayUmoney iOS SDK"
   s.description  = "This is a native SDK to integrate PayUmoney services with iOS apps"
 
