@@ -16,4 +16,4 @@ PayUmoney iOS SDK broadly offers following features.
 ### Technical Integration
 For integration documentation, kindly visit our [Wiki page](https://github.com/payu-intrepos/PayUMoney-IOS-SDK/wiki)
 
-#[Important Instructions for the Releasing to Apple](https://github.com/citruspay/citruspay-ios-sdk/wiki/6.-Releasing-to-Apple)
+#[Important Instructions for the Releasing to Apple](https://github.com/payu-intrepos/PayUMoney-IOS-SDK/wiki/Releasing-to-Apple)
