@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/payu-intrepos/PayUMoney-IOS-SDK"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Umang Arya" => "umang.arya@payu.in" }
-  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_PnP.2.3.2" }
+  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_PnP.2.4.0" }
 
   s.ios.deployment_target = '8.0'
   s.requires_arc     = true
