@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66B09B92216DA7C8001E98BD /* PayUCustomBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B09B90216DA7BD001E98BD /* PayUCustomBrowser.framework */; };
+		66B09B93216DA7C8001E98BD /* PayUCustomBrowser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66B09B90216DA7BD001E98BD /* PayUCustomBrowser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66BA094220BE6AC6002BD702 /* EMISelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA094020BE6AC6002BD702 /* EMISelectorViewController.m */; };
 		DD03C87E1F04C0F7002DB245 /* APIListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD03C87D1F04C0F7002DB245 /* APIListVC.m */; };
 		DD26C6181F443C52001C8B30 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DD26C6171F443C52001C8B30 /* iOSDefaultActivityIndicator.m */; };
@@ -33,6 +35,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DDE44C101F86124900634438 /* PayUMoneyCoreSDK.framework in Embed Frameworks */,
+				66B09B93216DA7C8001E98BD /* PayUCustomBrowser.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		66B09B90216DA7BD001E98BD /* PayUCustomBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PayUCustomBrowser.framework; path = ../../../Dependencies/CB/PayUCustomBrowser.framework; sourceTree = "<group>"; };
 		66BA094020BE6AC6002BD702 /* EMISelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMISelectorViewController.m; sourceTree = "<group>"; };
 		66BA094120BE6AC6002BD702 /* EMISelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMISelectorViewController.h; sourceTree = "<group>"; };
 		DD03C87C1F04C0F7002DB245 /* APIListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIListVC.h; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE44C0F1F86124900634438 /* PayUMoneyCoreSDK.framework in Frameworks */,
+				66B09B92216DA7C8001E98BD /* PayUCustomBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +146,7 @@
 		DDE44BEB1F8611DC00634438 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
+				66B09B90216DA7BD001E98BD /* PayUCustomBrowser.framework */,
 				DDE44C0E1F86123C00634438 /* PayUMoneyCoreSDK.framework */,
 			);
 			name = Dependency;
@@ -371,7 +377,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../",
+					"\"$(SRCROOT)/../../Dependencies/CB\"",
+				);
 				INFOPLIST_FILE = PayUMoneyExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -389,7 +398,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/../",
+					"\"$(SRCROOT)/../../Dependencies/CB\"",
+				);
 				INFOPLIST_FILE = PayUMoneyExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

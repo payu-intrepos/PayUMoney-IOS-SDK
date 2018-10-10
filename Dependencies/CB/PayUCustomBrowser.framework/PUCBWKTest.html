@@ -1,0 +1,33 @@
+
+<html>
+   <head>
+<!--       <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">-->
+       <script type="text/javascript">
+           //POST request example:
+           //post('URL', {key: 'value'});
+           function post(path, params) {
+               var method = "post";
+               var form = document.createElement("form");
+               form.setAttribute("method", method);
+               form.setAttribute("action", path);
+
+               for(var key in params) {
+                   if(params.hasOwnProperty(key)) {
+                       var hiddenField = document.createElement("input");
+                       hiddenField.setAttribute("type", "hidden");
+                       hiddenField.setAttribute("name", key);
+                       hiddenField.setAttribute("value", params[key]);
+
+                       form.appendChild(hiddenField);
+                   }
+               }
+
+               document.body.appendChild(form);
+               form.submit();
+           }
+       </script>
+   </head>
+   <body>
+   </body>
+</html>
+
