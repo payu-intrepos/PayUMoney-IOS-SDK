@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "PayUmoney_CoreSDK"
-  s.version      = "3.5"
+  s.version      = "3.6"
   s.summary      = "PayUmoney iOS SDK"
   s.description  = "This is a native SDK to integrate PayUmoney services with iOS apps"
 
@@ -23,5 +23,7 @@ Pod::Spec.new do |s|
 
   s.ios.preserve_paths   = '**'
   s.vendored_frameworks  = 'CoreSDK/PayUMoneyCoreSDK.framework'
+
+  s.dependency 'PayUIndia-Custom-Browser', '~> 5.8.1'
 
 end

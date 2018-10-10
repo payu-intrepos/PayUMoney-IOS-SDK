@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD2671631F8BD2DE00C06574 /* CitrusGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2671621F8BD2CE00C06574 /* CitrusGraphics.framework */; };
-		DD2671641F8BD2DE00C06574 /* CitrusGraphics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD2671621F8BD2CE00C06574 /* CitrusGraphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66B09B8E216DA729001E98BD /* PayUCustomBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B09B8C216DA6E2001E98BD /* PayUCustomBrowser.framework */; };
+		66B09B8F216DA729001E98BD /* PayUCustomBrowser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66B09B8C216DA6E2001E98BD /* PayUCustomBrowser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD7658F91F4AFF210060BBBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7658F81F4AFF210060BBBE /* main.m */; };
 		DD7658FC1F4AFF210060BBBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7658FB1F4AFF210060BBBE /* AppDelegate.m */; };
 		DDA000801F861A9400B8C9DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA0007D1F861A9400B8C9DA /* ViewController.m */; };
@@ -30,7 +30,7 @@
 			files = (
 				DDA000B61F861C4900B8C9DA /* PlugNPlay.framework in Embed Frameworks */,
 				DDA000B41F861C4900B8C9DA /* PayUMoneyCoreSDK.framework in Embed Frameworks */,
-				DD2671641F8BD2DE00C06574 /* CitrusGraphics.framework in Embed Frameworks */,
+				66B09B8F216DA729001E98BD /* PayUCustomBrowser.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DD2671621F8BD2CE00C06574 /* CitrusGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CitrusGraphics.framework; path = "../../../Dependencies/CitrusGraphics/Framework/graphics-sdk/CitrusGraphics.framework"; sourceTree = "<group>"; };
+		66B09B8C216DA6E2001E98BD /* PayUCustomBrowser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PayUCustomBrowser.framework; path = ../../../Dependencies/CB/PayUCustomBrowser.framework; sourceTree = "<group>"; };
 		DD7658F41F4AFF210060BBBE /* PlugNPlayFrameworkExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlugNPlayFrameworkExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7658F81F4AFF210060BBBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DD7658FA1F4AFF210060BBBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			files = (
 				DDA000B51F861C4900B8C9DA /* PlugNPlay.framework in Frameworks */,
 				DDA000B31F861C4900B8C9DA /* PayUMoneyCoreSDK.framework in Frameworks */,
-				DD2671631F8BD2DE00C06574 /* CitrusGraphics.framework in Frameworks */,
+				66B09B8E216DA729001E98BD /* PayUCustomBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +111,7 @@
 		DDA000861F861B0E00B8C9DA /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
-				DD2671621F8BD2CE00C06574 /* CitrusGraphics.framework */,
+				66B09B8C216DA6E2001E98BD /* PayUCustomBrowser.framework */,
 				DDA000871F861B5E00B8C9DA /* PayUMoneyCoreSDK.framework */,
 				DDA000891F861B6F00B8C9DA /* PlugNPlay.framework */,
 			);
