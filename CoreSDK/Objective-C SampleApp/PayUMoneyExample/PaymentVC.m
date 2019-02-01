@@ -13,6 +13,9 @@
 #import "iOSDefaultActivityIndicator.h"
 #import "EMISelectorViewController.h"
 
+#define kInvaildVPAMessage @"Please enter a valid vpa"
+#define kUnableToValidateVPAMessage @"Unable to validate VPA"
+#define kUPIUnavailable @"UPI option is unavailable"
 
 @interface PaymentVC ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 {
@@ -51,6 +54,9 @@
     else if (self.paymentMode == PUMPaymentModeStoredCard){
         self.vwStoredCard.hidden = NO;
         self.vwNB.hidden = NO;
+    } else if (self.paymentMode == PUMPaymentModeUPI) {
+        self.vwNB.hidden = NO;
+        self.vwStoredCard.hidden = YES;
     }
     else if (self.paymentMode == PUMPaymentModeNone){
         [self btnTappedPayNow:nil];
@@ -62,7 +68,8 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
         [self.view addGestureRecognizer:tapGesture];
     }
-    // Do any additional setup after loading the view.
+    
+    [self checkIfUPIOptionAvaliable];
 }
 - (void)dismissKeyboard{
     [self.view endEditing:NO];
@@ -72,6 +79,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)checkIfUPIOptionAvaliable {
+    if (self.paymentMode == PUMPaymentModeUPI && ![[PayUMoneyCoreSDK sharedInstance] isUPIOptionAvailable]) {
+        [self showAlertWithMessage:kUPIUnavailable];
+    }
+}
+
 - (void)getBinDetails:(NSString *)cardNumber withCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock {
     self.defaultActivityIndicator = [iOSDefaultActivityIndicator new];
     [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
@@ -143,8 +157,9 @@
         paymentParam.paymentMode = PUMPaymentModeStoredCard;
         paymentParam.objSavedCard.cvv = self.tfBankCode.text;
         [self showWebView:paymentParam];
-    }
-    else if (self.paymentMode == PUMPaymentModeNone){
+    } else if (self.paymentMode == PUMPaymentModeUPI) {
+        [self checkForValidVPA];
+    } else if (self.paymentMode == PUMPaymentModeNone){
         paymentParam.paymentMode = PUMPaymentModeNone;
         paymentParam.useWallet = YES;
         [self showWebView:paymentParam];
@@ -172,7 +187,7 @@
 
 -(void)openEMITenureScreen:(PUMPaymentParam *)paymentParam {
     NSDictionary *emiDictionary = [self.arrNetBank objectAtIndex:selectedIndex];
-
+    
     EMISelectorViewController *emiSelectorVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EMISelectorViewController"];
     [emiSelectorVC setBankCode:[[emiDictionary allKeys] firstObject]];
     [emiSelectorVC setPaymentParams:paymentParam];
@@ -200,6 +215,51 @@
     return @[@{@"From":@"Delhi"}, @{@"To":@"Pune"}];
 }
 
+- (void)showAlertWithMessage:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:action];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)proceedWithVPA:(NSString *)vpa {
+    PUMUPI *upiObject = [PUMUPI new];
+    upiObject.vpa = vpa;
+    
+    PUMPaymentParam *paymentParam = [PUMPaymentParam new];
+    paymentParam.objUPI = upiObject;
+    paymentParam.paymentMode = PUMPaymentModeUPI;
+    paymentParam.useWallet = self.switchUseWallet.isOn;
+    [self showWebView:paymentParam];
+}
+
+#pragma mark - API -
+
+- (void)checkForValidVPA {
+    [self.view endEditing:YES];
+    NSString *vpa = [self.tfBankCode.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    __weak PaymentVC *weakSelf = self;
+    
+    self.defaultActivityIndicator = [iOSDefaultActivityIndicator new];
+    [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
+    
+    [[PayUMoneyCoreSDK sharedInstance] validateVPA:vpa completion:^(BOOL isValidVPA, NSError *error) {
+        [weakSelf.defaultActivityIndicator stopAnimatingActivityIndicator];
+        if (error) {
+            [weakSelf showAlertWithMessage:kUnableToValidateVPAMessage];
+        } else {
+            if (isValidVPA) {
+                [weakSelf proceedWithVPA:vpa];
+            } else {
+                [weakSelf showAlertWithMessage:kInvaildVPAMessage];
+            }
+        }
+    }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -218,7 +278,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
+    
     if (self.paymentMode != PUMPaymentModeStoredCard ){
         NSDictionary *eachNetBank = [self.arrNetBank objectAtIndex:indexPath.row];
         if (_paymentMode == PUMPaymentModeEMI) {
@@ -239,9 +299,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (self.paymentMode == PUMPaymentModeNetBanking){
-//        self.tfBankCode.text = [[self tableView:tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text copy];
-//    }
+    //    if (self.paymentMode == PUMPaymentModeNetBanking){
+    //        self.tfBankCode.text = [[self tableView:tableView cellForRowAtIndexPath:indexPath].detailTextLabel.text copy];
+    //    }
     selectedIndex = (int)indexPath.row;
 }
 

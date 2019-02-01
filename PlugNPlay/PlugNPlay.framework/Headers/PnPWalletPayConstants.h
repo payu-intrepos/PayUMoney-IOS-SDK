@@ -16,7 +16,8 @@ typedef enum{
     PNPTapTypeWalletAndNetBank,
     PNPTapTypeNone,
     PNPTapType3PWallet,
-    PNPTapTypeEMI
+    PNPTapTypeEMI,
+    PNPTapTypeUPI
 } PNPTapType;
 
 #endif /* PnPWalletPayConstants_h */

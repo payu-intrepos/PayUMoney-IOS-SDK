@@ -9,14 +9,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "PayUmoney_CoreSDK"
-  s.version      = "3.6"
+  s.version      = "3.7"
   s.summary      = "PayUmoney iOS SDK"
   s.description  = "This is a native SDK to integrate PayUmoney services with iOS apps"
 
   s.homepage     = "https://github.com/payu-intrepos/PayUMoney-IOS-SDK"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Umang Arya" => "umang.arya@payu.in" }
-  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_CoreSDK.3.6" }
+  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_CoreSDK.3.7" }
 
   s.ios.deployment_target = '8.0'
   s.requires_arc     = true
