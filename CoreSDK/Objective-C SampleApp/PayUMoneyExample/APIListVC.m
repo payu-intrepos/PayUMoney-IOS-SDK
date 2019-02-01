@@ -39,6 +39,7 @@
                      @"PayViaStoredCard",
                      @"PayViaWallet",
                      @"PayViaEMI",
+                     @"PayViaUPI",
                      @"NitroFlags",
                      @"VerifyOTP",
                      @"FetchUserDataAPI",
@@ -140,7 +141,7 @@
             NSArray *arrSavedCard = [[dict valueForKey:@"result"] valueForKey:@"savedCards"];
             PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
             paymentVC.paymentMode = PUMPaymentModeStoredCard;
-            paymentVC.arrStoredCard = arrSavedCard;
+            paymentVC.arrStoredCard = [arrSavedCard isKindOfClass:[NSArray class]] ? arrSavedCard : nil;
             [self.navigationController pushViewController:paymentVC animated:YES];
         }
             break;
@@ -161,6 +162,14 @@
             break;
         case 11:
         {
+            PaymentVC *paymentVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PaymentVC class])];
+            paymentVC.paymentMode = PUMPaymentModeUPI;
+            [self.navigationController pushViewController:paymentVC animated:YES];
+            
+        }
+            break;
+        case 12:
+        {
             //            @"NitroFlags",
             NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                                   [PUMUtils convertBoolToString:[PUMHelperClass isNitroFlowEnabledForMerchant]],@"isNitroFlowEnabledForMerchant",
@@ -174,14 +183,14 @@
             [Utils showMsgWithTitle:@"NitroFlags" message:[NSString stringWithFormat:@"%@",dict]];
         }
             break;
-        case 12:
+        case 13:
         {
             //            @"VerifyOTP",
             VerifyOTPVC *verifyOTPVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([VerifyOTPVC class])];
             [self.navigationController pushViewController:verifyOTPVC animated:YES];
         }
             break;
-        case 13:
+        case 14:
         {
             //            @"FetchUserDataAPI",
             msg = [NSString stringWithFormat:@"%@",self.fetchUserDataAPIResponse];

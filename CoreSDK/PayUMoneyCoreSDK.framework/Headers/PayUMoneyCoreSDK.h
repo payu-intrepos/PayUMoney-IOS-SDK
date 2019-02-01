@@ -98,6 +98,14 @@ typedef NSString* (^PUMRightActionCompletionBlock)(BOOL actionOccurred);
 /// This method is used for getting updated emi tenures on the basis of amount provided. Amount should contain convenience fee as well
 - (void)getEMIOptionsForAmount:(NSString *)amount completion:(PUMRawJSONCompletionBlock)completionBlock;
 
+/// Checks if UPI option is available or not.
+- (BOOL)isUPIOptionAvailable;
+
+/** Checks if VPA is valid or not. VPA should be in a format example@@example
+ @param vpa The VPA whose validation needs to be performed
+ */
+- (void)validateVPA:(NSString *)vpa completion:(void(^)(BOOL isValidVPA, NSError *error))completionBlock;
+
 - (void)fetchPaymentUserDataAPIWithCompletionBlock:(PUMRawJSONCompletionBlock)completionBlock;
 
 - (void)getBinDetailsAPI:(NSString *)cardBin

@@ -64,6 +64,7 @@
 #define Cancel_Transaction_URL                      @"payment/postBackParam.do"
 #define Cancel_Transaction                          @"payment/postBackParamIcp.do"
 #define Post_Payment_URL                            @"payment/app/postPayment"
+#define Validate_VPA                                @"payu/validateVpa"
 
 // ONE_TAP_ENABLE
 #define ENABLE_ONE_TAP                              @"auth/app/setUserPaymentOption"  //params oneClickTxn=-1 OR 0 OR 1 <POST
@@ -230,22 +231,26 @@
 #define ENVIRONMENT_PP22_API_URL                                @"https://pp22.payumoney.com/"
 #define ENVIRONMENT_MOBILE_TEST_API_URL                         @"https://mobiletest.payumoney.com/"
 #define ENVIRONMENT_PP44_API_URL                                @"https://pp44.payumoney.com/"
+#define ENVIRONMENT_PP58_API_URL                                @"https://pp58.payumoney.com/"
 
 //Web URLs
 #define ENVIRONMENT_PRODUCTION_WEB_URL                          @"https://secure.payu.in/_payment"
 #define ENVIRONMENT_TEST_WEB_URL                                @"https://sandboxsecure.payu.in/_payment"
-#define ENVIRONMENT_PP42_WEB_URL                                @"http://pp42.secure.payu.in/_payment"
-#define ENVIRONMENT_PP25_WEB_URL                                @"http://pp25.secure.payu.in/_payment"
-#define ENVIRONMENT_PP41_WEB_URL                                @"http://pp41.secure.payu.in/_payment"
-#define ENVIRONMENT_PP10_WEB_URL                                @"http://pp10.secure.payu.in/_payment"
-#define ENVIRONMENT_PP0_WEB_URL                                 @"http://pp0.secure.payu.in/_payment"
-#define ENVIRONMENT_PP48_WEB_URL                                @"http://pp51.secure.payu.in/_payment"
-#define ENVIRONMENT_PP4_WEB_URL                                 @"http://pp4.secure.payu.in/_payment"
-#define ENVIRONMENT_MOBILE_TEST_WEB_URL                         @"http://mobiletest.payu.in/_payment"
-#define ENVIRONMENT_PP22_WEB_URL                                @"http://pp22.secure.payu.in/_payment"
-#define ENVIRONMENT_PP44_WEB_URL                                @"http://pp44.secure.payu.in/_payment"
+#define ENVIRONMENT_PP42_WEB_URL                                @"https://pp42secure.payu.in/_payment"
+#define ENVIRONMENT_PP25_WEB_URL                                @"https://pp25secure.payu.in/_payment"
+#define ENVIRONMENT_PP41_WEB_URL                                @"https://pp41secure.payu.in/_payment"
+#define ENVIRONMENT_PP10_WEB_URL                                @"https://pp10secure.payu.in/_payment"
+#define ENVIRONMENT_PP0_WEB_URL                                 @"https://pp0secure.payu.in/_payment"
+#define ENVIRONMENT_PP48_WEB_URL                                @"https://pp51secure.payu.in/_payment"
+#define ENVIRONMENT_PP4_WEB_URL                                 @"https://pp4secure.payu.in/_payment"
+#define ENVIRONMENT_MOBILE_TEST_WEB_URL                         @"https://mobiletest.payu.in/_payment"
+#define ENVIRONMENT_PP22_WEB_URL                                @"https://pp22secure.payu.in/_payment"
+#define ENVIRONMENT_PP44_WEB_URL                                @"https://pp44secure.payu.in/_payment"
+#define ENVIRONMENT_PP58_WEB_URL                                @"https://pp58secure.payu.in/_payment"
 
+//Citrus URLs
 
+#define CITRUS_CHECKOUT_URL                                     @"https://checkout.citruspay.com/"
 
 #define TXNID @"txnid"
 #define MERCHANTID @"merchantId"
@@ -277,13 +282,16 @@
 
 #define     RAW_JSON                                            @"RawJSON"
 #define     PARSED_RESPONSE                                     @"ParsedResponse"
-
+#define     VPA                                                 @"vpa"
+#define     INVALID_RESPONSE                                    @"Invalid Response"
+#define     API_Failure                                         @"API Failed"
 
 
 
 typedef NS_ENUM(NSInteger, PUMBaseURLCategory) {
     PUMBaseURLForAPI,
-    PUMBaseURLForWeb
+    PUMBaseURLForWeb,
+    PUMBaseURLForCitrusCheckout
 };
 
 typedef NS_ENUM(NSInteger, PUMInternalEnvironment) {
@@ -296,7 +304,8 @@ typedef NS_ENUM(NSInteger, PUMInternalEnvironment) {
     PUMEnvironmentPP22,
     PUMEnvironmentPP48,
     PUMEnvironmentPP44,
-    PUMEnvironmentPP25
+    PUMEnvironmentPP25,
+    PUMEnvironmentPP58
 };
 
 
@@ -336,8 +345,8 @@ typedef NS_ENUM(NSInteger,SDK_REQUEST_TYPE ) {
     SDK_ANALYTICS_FETCH_API_TOKEN,
     SDK_ANALYTICS_SEND,
     SDK_FETCH_USER_DATA,
-    SDK_GET_MULTIPLE_BIN_DETAILS
-    
+    SDK_GET_MULTIPLE_BIN_DETAILS,
+    SDK_VALIDATE_VPA
 };
 
 static NSString *const kPUMAOTP = @"OTP";

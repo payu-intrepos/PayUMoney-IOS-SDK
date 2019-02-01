@@ -34,6 +34,8 @@
 
 + (BOOL)isValidEmail:(NSString *)email;
 
++ (BOOL)isValidVPA:(NSString *)vpa;
+
 + (BOOL)validateRegex:(NSString *) regex onString:(NSString *) str;
 
 + (BOOL)isNitroFlowEnabledForMerchant;
