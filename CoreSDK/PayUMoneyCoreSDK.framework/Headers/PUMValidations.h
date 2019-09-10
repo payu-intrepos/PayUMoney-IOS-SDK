@@ -15,9 +15,4 @@
  */
 + (BOOL)isValidString:(id)content;
 
-
-/*!
- * Validate any URL
- */
-+(BOOL) validateURL: (NSString *) urlString;
 @end
