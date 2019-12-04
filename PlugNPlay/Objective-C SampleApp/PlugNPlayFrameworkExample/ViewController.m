@@ -552,17 +552,17 @@
 
 - (NSString*) createSHA512:(NSString *)source {
     
-    const char *s = [source cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cstr = [source cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:source.length];
+    uint8_t digest[CC_SHA512_DIGEST_LENGTH];
+    CC_SHA512(data.bytes, (CC_LONG)data.length, digest);
+    NSMutableString* output = [NSMutableString  stringWithCapacity:CC_SHA512_DIGEST_LENGTH * 2];
+
+    for(int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
     
-    NSData *keyData = [NSData dataWithBytes:s length:strlen(s)];
-    
-    uint8_t digest[CC_SHA512_DIGEST_LENGTH] = {0};
-    
-    CC_SHA512(keyData.bytes, (CC_LONG)keyData.length, digest);
-    
-    NSData *output = [NSData dataWithBytes:digest length:CC_SHA512_DIGEST_LENGTH];
-    NSLog(@"Hash output --------- %@",output);
-    NSString *hash =  [[[[output description]stringByReplacingOccurrencesOfString:@"<" withString:@""]stringByReplacingOccurrencesOfString:@">" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *hash =  [[[output stringByReplacingOccurrencesOfString:@"<" withString:@""]stringByReplacingOccurrencesOfString:@">" withString:@""]stringByReplacingOccurrencesOfString:@" " withString:@""];
+
     return hash;
 }
 
