@@ -13,7 +13,6 @@
 NS_ENUM(NSInteger) {
     PUCBNilArgument = 100,
     PUCBInvalidMerchantKey = 101,
-    PUCBBankSimulatorNotSupported = 102
 };
 
 
@@ -22,9 +21,6 @@ NS_ENUM(NSInteger) {
 @required
 /*!
  * This method gets called when transaction is successfull.
- * @param response
- * Response sent by PayU on successful completion of Payment.
- *
  * @note Hash inside response should be compared with server calculated hash to rule out possibility of tampering of data.
  * This should be done at server's end.
  *
@@ -33,15 +29,11 @@ NS_ENUM(NSInteger) {
 
 /*!
  * This method gets called when transaction fails. It logs txn_fail event.
- * @param response
- * Response sent by PayU when the transaction gets failed
  */
 - (void)PayUFailureResponse:(id)response;
 
 /*!
  * This method gets called in case of network error
- * @param notification
- * An NSDictionary containing details about the network error
  */
 - (void)PayUConnectionError:(NSDictionary *)notification;
 
@@ -53,10 +45,6 @@ NS_ENUM(NSInteger) {
 /*!
  * If the merchant intentends to receive response from her own server, this method shoudld be implemented.
  * This method is called when merchant's Success URL passes data to the custom browser.
- * @param payUResponse
- * Response sent by PayU on successful completion of Payment.
- * @param surlResponse
- * Response sent by merchant's server on successful completion of the payment.
  */
 - (void)PayUSuccessResponse:(id) payUResponse SURLResponse:(id) surlResponse;
     
@@ -64,10 +52,6 @@ NS_ENUM(NSInteger) {
 /*!
  * If the merchant intentends to receive response from her own server, this method shoudld be implemented.
  * This method is called when merchant's Failure URL passes data to the custom browser.
- * @param payUResponse
- * Response sent by PayU when the transaction gets failed.
- * @param furlResponse
- * Response sent by merchant's server on failure of the payment.
  */
 - (void)PayUFailureResponse:(id) payUResponse FURLResponse:(id) furlResponse;
 
@@ -92,9 +76,8 @@ NS_ENUM(NSInteger) {
 @end
 
 
-@interface PUCBWebVC : UIViewController <UIWebViewDelegate, WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate>
+@interface PUCBWebVC : UIViewController <WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate>
 
-@property (strong, nonatomic) UIWebView *vwWebView;
 @property (strong, nonatomic) WKWebView *vwWKWebView;
 @property (weak, nonatomic) id <PUCBWebVCDelegate> cbWebVCDelegate;
 
@@ -108,15 +91,6 @@ NS_ENUM(NSInteger) {
 
 /*!
  * This method is one of the two designated initializer of PUCBWebVC class
- * @param postParam
- * Post parmamters required by the payment server
- * @param url
- * This is the payment URL, the first URL which gets loaded in payment journey
- * @param key
- * This is the merchant key which she gets after onbaording PayU
- * @param error
- * Error is retured if the other parmaters fails validation checks
- @see -initWithNSURLRequest:merchantKey:error
  */
 
 - (instancetype)initWithPostParam:(NSString*)postParam
@@ -126,12 +100,6 @@ NS_ENUM(NSInteger) {
 
 /*!
  * This method is one of the two designated initializer of PUCBWebVC class
- * @param request
- * This is the NSURLRequest which should ideally contain post params along with the payment URL
- * @param key
- * This is the merchant key which she gets after onbaording PayU
- * @param error
- * Error is retured if the other parmaters fails validation checks
  */
 - (instancetype)initWithNSURLRequest:(NSURLRequest*)request
                          merchantKey:(NSString*)key

@@ -9,14 +9,6 @@
 #ifndef iOSCustomeBrowser_CBConstant_h
 #define iOSCustomeBrowser_CBConstant_h
 
-
-
-typedef NS_OPTIONS(NSUInteger, PUCBBankSimulator) {
-    PUCBDefault = 0,
-    PUCBBankSimulatorLocal = 1,
-    PUCBBankSimulatorRemote = 2,
-};
-
 //Macros To prevent instantiation of class by standard methods
 #define ATTRIBUTE_ALLOC __attribute__((unavailable("alloc not available, call sharedSingletonInstance instead")))
 #define ATTRIBUTE_INIT __attribute__((unavailable("init not available, call sharedSingletonInstance instead")))

@@ -161,11 +161,12 @@
     PUMTxnParam * txnParam = [self getTxnParam];
     [self rememberEnteredDetails];
     
+    __weak ViewController *weakSelf = self;
     [PlugNPlay presentPaymentViewControllerWithTxnParams:txnParam
                                         onViewController:self
                                      withCompletionBlock:^(NSDictionary *paymentResponse, NSError *error, id extraParam) {
                                       if (error) {
-                                          [UIUtility toastMessageOnScreen:[error localizedDescription]];
+                                          [UIUtility toastMessageOnScreen:[error localizedDescription] fromViewController:weakSelf];
                                       } else {
                                           NSString *message;
                                           if ([paymentResponse objectForKey:@"result"] && [[paymentResponse objectForKey:@"result"] isKindOfClass:[NSDictionary class]] ) {
@@ -177,7 +178,7 @@
                                           else {
                                               message = [paymentResponse valueForKey:@"status"];
                                           }
-                                          [UIUtility toastMessageOnScreen:message];
+                                          [UIUtility toastMessageOnScreen:message fromViewController:weakSelf];
                                       }
                                   }];
     
@@ -524,7 +525,7 @@
 -(void)doSignOut{
     if ([PayUMoneyCoreSDK isUserSignedIn]) {
         [PayUMoneyCoreSDK signOut];
-        [UIUtility toastMessageOnScreen:@"Signout Successfull"];
+        [UIUtility toastMessageOnScreen:@"Signout Successfull" fromViewController:self];
         _logout.enabled = NO;
     }
 }

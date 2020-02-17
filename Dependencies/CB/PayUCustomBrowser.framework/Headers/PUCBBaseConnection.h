@@ -20,19 +20,14 @@
 - (instancetype) init ATTRIBUTE_INIT;
 - (instancetype) new ATTRIBUTE_NEW;
 
-@property (nonatomic, assign) BOOL isMagicRetry;
 @property (nonatomic, copy) NSString *txnID;
 @property (nonatomic, copy) NSString *merchantKey;
 @property (weak, nonatomic) id <PayUCBWebViewResponseDelegate> cbWebViewResponseDelegate;
 @property (nonatomic, assign) BOOL isAutoOTPSelect;
-@property (nonatomic, assign) PUCBBankSimulator bankSimulatorType;
 @property (nonatomic, strong) PUCBConfiguration *cbConfig;
 
 /*!
  * This method is called from Merchant's App to initialize CB.
- * @param  view UIView on which WebView needs to be displayed
- * @param  webView instance of WebView (It can be either WKWebView or UIWebView)
- * @return obj instance of PUCBBaseConnection (or instance of its subclass, depending upon class on which it is called)
  */
 -(instancetype)init:(UIView *)view webView:(id)webView;
 
