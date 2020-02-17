@@ -9,35 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIUtility : NSObject <UITextFieldDelegate>
-/**
- *  show alertView with activity
- *
- *  @param message alertView message
- *  @param activity show activity if YES
- */
-+(void)didPresentLoadingAlertView:(NSString *)message withActivity:(BOOL)activity;
-
-/**
- *  dismiss alertView with activity
- *
- *  @param activity shdismissow activity if YES
- */
-+(void)dismissLoadingAlertView:(BOOL)activity;
-
-/**
- *  dismiss alertView with error
- *
- *  @param error alertView error
- */
-+ (void)didPresentErrorAlertView:(NSError*)error;
-
-/**
- *  dismiss alertView with message
- *
- *  @param message alertView message
- */
-+ (void)didPresentInfoAlertView:(NSString*)message;
+@interface UIUtility : NSObject
 
 /**
  *  move and animate textField while tapping
@@ -49,5 +21,6 @@
 + (void)animateTextField:(UITextField*)textField up:(BOOL)up toView:(UIView*)toView;
 
 
-+(void)toastMessageOnScreen:(NSString *)string;
++(void)toastMessageOnScreen:(NSString *)string fromViewController:(UIViewController *)viewController;
+
 @end

@@ -18,7 +18,6 @@
 
 /*!
  * This method returns singleton object. Use this to configure features provided by CB
- * @return obj The singleton sintance of PUCBConfiguration class
  */
 +(instancetype)getSingletonInstance;
 
@@ -29,11 +28,8 @@
 
 @property (nonatomic, strong) NSString *merchantKey;
 @property (nonatomic, strong) NSString *transactionId;
-@property (nonatomic, assign) BOOL isMagicRetry;
 @property (nonatomic, assign) BOOL isAutoOTPSelect;
 @property (nonatomic, assign) BOOL shouldShowPayULoader;
-@property (nonatomic, assign) BOOL enableWKWebView;
-@property (nonatomic, assign) PUCBBankSimulator bankSimulatorType;
 @property (nonatomic, strong) PUCBReviewOrderConfig *reviewOrderConfig;
 @property (nonatomic, assign) NSUInteger surePayCount;
 @property (nonatomic, strong) NSString *paymentURL, *paymentPostParam;

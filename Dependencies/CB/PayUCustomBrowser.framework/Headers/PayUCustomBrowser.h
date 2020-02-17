@@ -16,7 +16,6 @@ FOUNDATION_EXPORT const unsigned char PayUCustomBrowserVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <PayUCustomBrowser/PublicHeader.h>
 #import "CBWKConnection.h"
-#import "CBConnection.h"
 #import "CBConstant.h"
 #import "PUCBWebVC.h"
 

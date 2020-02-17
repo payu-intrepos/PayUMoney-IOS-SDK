@@ -9,14 +9,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "PayUmoney_CoreSDK"
-  s.version      = "3.8"
+  s.version      = "4.0"
   s.summary      = "PayUmoney iOS SDK"
   s.description  = "This is a native SDK to integrate PayUmoney services with iOS apps"
 
   s.homepage     = "https://github.com/payu-intrepos/PayUMoney-IOS-SDK"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Umang Arya" => "umang.arya@payu.in" }
-  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_CoreSDK.3.8" }
+  s.source       = { :git => "https://github.com/payu-intrepos/PayUMoney-IOS-SDK.git", :tag => "PayUmoney_CoreSDK.4.0" }
 
   s.ios.deployment_target = '8.0'
   s.requires_arc     = true
@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
   s.ios.preserve_paths   = '**'
   s.vendored_frameworks  = 'CoreSDK/PayUMoneyCoreSDK.framework'
 
-  s.dependency 'PayUIndia-Custom-Browser', '~> 5.8.1'
+  s.dependency 'PayUIndia-Custom-Browser', '~> 5.9'
 
 end
