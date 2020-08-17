@@ -14,6 +14,6 @@ PayUmoney iOS SDK broadly offers following features.
 * Simplified bank page interaction using Custom Browser.
 
 ### Technical Integration
-For integration documentation, kindly visit our [Wiki page](https://github.com/payu-intrepos/PayUMoney-IOS-SDK/wiki)
+For integration documentation, kindly visit our [Integration page](https://developer.payumoney.com/ios/)
 
 #[Important Instructions for the Releasing to Apple](https://github.com/payu-intrepos/PayUMoney-IOS-SDK/wiki/Releasing-to-Apple)
