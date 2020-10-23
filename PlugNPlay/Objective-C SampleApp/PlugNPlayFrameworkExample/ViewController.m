@@ -50,6 +50,10 @@
     
     [self fetchRememberedDetails];
     
+    if (@available(iOS 13.0, *)) {
+        [self setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
+    }
+    
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = YES;
     [_scrollView addGestureRecognizer:tapScroll];
