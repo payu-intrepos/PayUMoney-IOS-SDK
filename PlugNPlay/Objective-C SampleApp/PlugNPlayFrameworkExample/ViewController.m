@@ -17,7 +17,7 @@
 
 #define kMerchantKey @"mdyCKV"
 #define kMerchantID @"4914106"
-#define kMerchantSalt @"Je7q3652"
+#define kMerchantSalt @"<Please_add_test_salt_here>"
 
 @interface ViewController ()<UIScrollViewDelegate>{
     UITextField *fieldInAction;
@@ -398,7 +398,7 @@
 //    if([self selectedEnv] == PUMEnvironmentTest){
 ////        [PUMCoreSDKManager initWithKey:@"Aqryi8"
 ////                            merchantid:@"397202"
-////                                  salt:@"ZRC9Xgru"
+////                                  salt:@"<Please_add_test_salt_here>"
 ////                                  surl:@"https://www.payumoney.com/mobileapp/payumoney/success.php"
 ////                                  furl:@"https://www.payumoney.com/mobileapp/payumoney/failure.php"
 ////                              logo_url:@"https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
@@ -406,7 +406,7 @@
 //
 //        [PUMCoreSDKManager initWithKey:@"tPJM2e"
 //                                merchantid:@"4824899"
-//                                  salt:@"x4rmTrFm"
+//                                  salt:@"<Please_add_test_salt_here>"
 //                                  surl:@"https://www.payumoney.com/mobileapp/payumoney/success.php"
 //                                  furl:@"https://www.payumoney.com/mobileapp/payumoney/failure.php"
 //                              logo_url:@"https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
@@ -419,7 +419,7 @@
 //        
 //        [PUMCoreSDKManager initWithKey:@"mdyCKV"
 //                            merchantid:@"4914106"
-//                                  salt:@"Je7q3652"
+//                                  salt:@"<Please_add_test_salt_here>"
 //                                  surl:@"https://www.payumoney.com/mobileapp/payumoney/success.php"
 //                                  furl:@"https://www.payumoney.com/mobileapp/payumoney/failure.php"
 //                              logo_url:@"https://www.google.co.in/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
